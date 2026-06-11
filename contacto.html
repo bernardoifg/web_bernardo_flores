@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bernardo Flores – CONTACTO</title>
+  <meta name="description" content="Contacta a Bernardo Flores – bernardoifg@gmail.com | C. 55.1844.1995" />
+  <meta property="og:title" content="Contacto – Bernardo Flores" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body class="no-header-page" data-page="contact">
+
+  <!-- HEADER -->
+  <div class="birdseye-header dark-nav" id="site-header">
+    <div class="container nav-inner">
+      <div class="logo">
+        <a href="index.html"><img src="./assets/images/bf-fondo.png" alt="Bernardo Flores" /></a>
+      </div>
+      <div class="nav desktop-nav">
+        <ul class="wsite-menu-default">
+          <li><a href="index.html" class="wsite-menu-item" data-i18n="nav.about">SOBRE MÍ</a></li>
+          <li><a href="trabajo.html" class="wsite-menu-item" data-i18n="nav.work">TRABAJO</a></li>
+          <li><a href="experiencia.html" class="wsite-menu-item" data-i18n="nav.experience">EXPERIENCIA</a></li>
+          <li><a href="estudios.html" class="wsite-menu-item" data-i18n="nav.studies">ESTUDIOS</a></li>
+          <li id="active"><a href="contacto.html" class="wsite-menu-item" data-i18n="nav.contact">CONTACTO</a></li>
+          <li class="lang-toggle">
+            <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+          </li>
+        </ul>
+      </div>
+      <label class="hamburger" for="nav-toggle" aria-label="Menu"><span></span></label>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobile-nav">
+    <label class="hamburger" for="nav-toggle" aria-label="Cerrar menu"><span></span></label>
+    <ul class="wsite-menu-default">
+      <li><a href="index.html" class="wsite-menu-item" data-i18n="nav.about">SOBRE MÍ</a></li>
+      <li><a href="trabajo.html" class="wsite-menu-item" data-i18n="nav.work">TRABAJO</a></li>
+      <li><a href="experiencia.html" class="wsite-menu-item" data-i18n="nav.experience">EXPERIENCIA</a></li>
+      <li><a href="estudios.html" class="wsite-menu-item" data-i18n="nav.studies">ESTUDIOS</a></li>
+      <li id="m-active"><a href="contacto.html" class="wsite-menu-item" data-i18n="nav.contact">CONTACTO</a></li>
+      <li class="lang-toggle">
+        <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main-wrap">
+    <div id="wsite-content" class="wsite-elements wsite-not-footer">
+      <div class="wsite-section wsite-body-section">
+        <div class="wsite-section-content">
+          <div class="container">
+            <div class="wsite-section-elements">
+
+              <h2 class="wsite-content-title" style="text-align:left;" data-i18n="contact.heading">Contacto</h2>
+
+              <div class="paragraph">
+                C. 55.1844.1995<br />
+                <a href="mailto:bernardoifg@gmail.com">bernardoifg@gmail.com</a><br />
+                Col. Balcones de la Herradura, Huixquilucan, México, D.F.
+              </div>
+
+              <!-- Social icons — solo iconos -->
+              <div style="text-align:left; margin-bottom: 30px;">
+                <span class="wsite-social wsite-social-default" style="text-align:left;">
+                  <a class="first-child wsite-social-item wsite-social-facebook"
+                     href="https://www.facebook.com/bherflow" target="_blank"
+                     aria-label="Facebook">&nbsp;</a>
+                  <a class="wsite-social-item wsite-social-twitter"
+                     href="https://twitter.com/bherflow" target="_blank"
+                     aria-label="Twitter">&nbsp;</a>
+                  <a class="last-child wsite-social-item wsite-social-linkedin"
+                     href="https://mx.linkedin.com/pub/bernardo-flores/24/844/4a0" target="_blank"
+                     aria-label="LinkedIn">&nbsp;</a>
+                </span>
+              </div>
+
+              <hr class="styled-hr" />
+
+              <!-- Formulario de contacto — replica exacta Weebly -->
+              <div class="paragraph" data-i18n="contact.intro">
+                Siéntete libre de compartir tu información y me pondré en contacto contigo.
+              </div>
+
+              <div class="wsite-form-container">
+                <div class="wsite-form-fields-required-label">
+                  <span class="form-required">*</span> <span data-i18n="contact.required">Indica campo requerido</span>
+                </div>
+                <form id="wsite-com-native-form" onsubmit="handleSubmit(event)">
+
+                  <!-- Nombre -->
+                  <div class="wsite-form-field">
+                    <label class="wsite-form-label"><span data-i18n="contact.name">Nombre</span> <span class="form-required">*</span></label>
+                    <div class="wsite-form-input-container">
+                      <input class="wsite-form-input" type="text" name="name" required />
+                    </div>
+                  </div>
+
+                  <!-- Email -->
+                  <div class="wsite-form-field">
+                    <label class="wsite-form-label">Email <span class="form-required">*</span></label>
+                    <div class="wsite-form-input-container">
+                      <input class="wsite-form-input" type="email" name="email" required />
+                    </div>
+                  </div>
+
+                  <!-- Comentario -->
+                  <div class="wsite-form-field">
+                    <label class="wsite-form-label"><span data-i18n="contact.comment">Comentario</span> <span class="form-required">*</span></label>
+                    <div class="wsite-form-input-container">
+                      <textarea class="wsite-form-input" name="comment" required></textarea>
+                    </div>
+                  </div>
+
+                  <!-- Submit -->
+                  <div class="wsite-form-field">
+                    <button type="submit" class="wsite-button wsite-button-small">
+                      <span class="wsite-button-inner" data-i18n="contact.submit">Enviar</span>
+                    </button>
+                  </div>
+
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p data-i18n="footer">&copy; 2025 Bernardo Flores &mdash; Head of Art &amp; UX/UI Designer</p>
+  </footer>
+
+  <script src="./assets/js/i18n.js"></script>
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        header.style.padding = '10px 40px';
+      } else {
+        header.style.padding = '20px 40px';
+      }
+    });
+
+    const mobileNav = document.getElementById('mobile-nav');
+    document.querySelectorAll('.hamburger').forEach(h => {
+      h.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+        document.body.classList.toggle('nav-open');
+      });
+    });
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const isEn = localStorage.getItem('bf_lang') === 'en';
+      
+      const btn = form.querySelector('button[type="submit"]');
+      const btnInner = btn.querySelector('.wsite-button-inner');
+      const originalText = btnInner.innerHTML;
+      
+      btnInner.innerHTML = isEn ? 'Sending...' : 'Enviando...';
+      btn.disabled = true;
+
+      fetch("https://formsubmit.co/ajax/bernardoifg@gmail.com", {
+        method: "POST",
+        body: new FormData(form)
+      })
+      .then(response => {
+        if (response.ok) {
+          alert(isEn ? 'Thank you for your message! I will get in touch with you soon.' : '¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.');
+          form.reset();
+        } else {
+          alert(isEn ? 'Oops! There was a problem submitting your form.' : '¡Ups! Hubo un problema al enviar el formulario.');
+        }
+      })
+      .catch(error => {
+        alert(isEn ? 'Oops! There was a problem submitting your form.' : '¡Ups! Hubo un problema al enviar el formulario.');
+        console.error(error);
+      })
+      .finally(() => {
+        btnInner.innerHTML = originalText;
+        btn.disabled = false;
+      });
+    }
+  </script>
+
+</body>
+</html>

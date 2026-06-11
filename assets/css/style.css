@@ -1,0 +1,621 @@
+/* =============================================
+   BERNARDO FLORES - Personal Website
+   Stylesheet – fiel al diseño original Weebly
+   ============================================= */
+
+/* ---- Google Fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* ---- CSS Reset & Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { height: 100%; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #000;
+  background: rgba(0,0,0,0.05);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; text-decoration: none; transition: opacity 300ms ease; }
+a:hover { opacity: 0.75; }
+
+ul, ol { list-style: none; padding: 0; margin: 0; }
+
+/* ---- Layout ---- */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* =============================================
+   HEADER / NAV
+   ============================================= */
+.birdseye-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 0 40px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  border-color: #fff;
+  box-sizing: border-box;
+  transition: background-color 300ms ease, color 260ms ease;
+}
+
+/* Páginas SIN hero: nav oscuro siempre */
+.birdseye-header.dark-nav {
+  background: rgba(0,0,0,0.9);
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Nav inner — flex row, llena todo el header */
+.birdseye-header .nav-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+/* Logo */
+.birdseye-header .logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.birdseye-header .logo a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: opacity 200ms ease;
+}
+
+.birdseye-header .logo a:hover { opacity: 0.6; }
+
+.birdseye-header .logo img {
+  max-width: 180px;
+  max-height: 44px;
+  display: block;
+  object-fit: contain;
+}
+
+/* Desktop nav */
+.nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 2px;
+  height: 100%;
+}
+
+.nav li {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.nav .wsite-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: opacity 300ms ease;
+}
+
+/* Ítem activo */
+.nav li#active > .wsite-menu-item,
+.nav li.active > .wsite-menu-item {
+  border-color: inherit;
+}
+
+.nav li .wsite-menu-item:hover { opacity: 0.6; }
+
+/* ── Botón idioma EN / ES ── */
+.lang-toggle { display: inline-flex; align-items: center; gap: 3px; padding: 8px 12px; }
+.lang-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 500;
+  letter-spacing: 0.05em; text-transform: uppercase; color: inherit;
+  padding: 4px; opacity: 0.45; transition: opacity 200ms; line-height: 1;
+}
+.lang-btn:hover { opacity: 0.8; }
+.lang-btn.lang-active { opacity: 1; font-weight: 700; border-bottom: 1px solid currentColor; }
+.lang-sep { opacity: 0.35; font-size: 11px; }
+.mobile-nav .lang-toggle { justify-content: center; padding: 8px 0; }
+.mobile-nav .lang-btn { color: #000; }
+
+/* ── Hamburger — solo mobile, sin posición absoluta ── */
+.hamburger {
+  display: none;                /* oculto por defecto */
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Las 3 líneas del hamburger */
+.hamburger span {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+}
+
+.hamburger span::before,
+.hamburger span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  transition: all 200ms ease;
+}
+
+.hamburger span::before { top: -7px; }
+.hamburger span::after  { top:  7px; }
+
+
+/* Mobile nav */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 12;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  max-height: 0;
+  padding: 0;
+  background: #fff;
+  box-sizing: border-box;
+  transition: all 300ms cubic-bezier(0, 0.085, 0.68, 0.53);
+}
+
+.mobile-nav.open {
+  max-height: 100vh;
+  padding: 50px 0;
+}
+
+.mobile-nav ul { float: none; height: auto; max-width: none; }
+
+.mobile-nav li {
+  position: relative;
+  display: block;
+  margin: 0;
+  border: none;
+  text-align: center;
+}
+
+.mobile-nav li a {
+  display: block;
+  position: relative;
+  padding: 10px 0;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.mobile-nav li a:hover,
+.mobile-nav li.active a { background: rgba(0,0,0,0.05); opacity: 1; }
+
+/* =============================================
+   HERO / BANNER
+   ============================================= */
+.banner-wrap {
+  position: relative;
+  background: #000;
+  color: #fff;
+}
+
+/* El section es el contenedor con la foto */
+.wsite-header-section {
+  height: 680px;
+  background-image: url('../images/506073534.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 8.96%;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: flex-end;        /* texto al fondo */
+  justify-content: center;
+}
+
+/* Gradiente oscuro abajo para que el texto sea legible */
+.wsite-header-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 50%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+}
+
+/* El contenido se posiciona encima del gradiente */
+.wsite-header-section .wsite-section-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 40px 50px;
+  text-align: center;
+}
+
+/* Quitar padding extra del container dentro del hero */
+.wsite-header-section .container { padding: 0; }
+
+/* Título en hero — bold */
+.wsite-content-title.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 8px;
+  letter-spacing: 4px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* Subtítulo en hero */
+.hero-subtitle,
+.wsite-header-section .paragraph {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.18em !important;
+  color: #fff !important;
+  text-transform: uppercase !important;
+  margin: 0 !important;
+}
+
+
+/* =============================================
+   MAIN CONTENT
+   ============================================= */
+.main-wrap {
+  width: 100%;
+  background: #fff;
+}
+
+.main-wrap .container { padding: 30px 40px; }
+
+/* Páginas sin hero necesitan padding-top */
+.no-header-page .main-wrap { padding-top: 80px; }
+
+h2 {
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 auto 30px;
+}
+
+.wsite-content-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 auto 20px;
+  color: #000;
+}
+
+div.paragraph, p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  margin: 0 auto 30px;
+  color: #000;
+}
+
+div.paragraph ul, div.paragraph ol { padding-left: 3em; margin: 5px 0; }
+div.paragraph li { padding-left: 5px; margin: 3px 0 0; list-style: disc outside; }
+div.paragraph ol li { list-style: decimal outside; }
+
+/* Sección backgrounds */
+.wsite-background-2 { background: #fff; }
+.wsite-background-3 { background: #fafafa; }
+.wsite-background-4 { background: #f5f5f5; }
+.wsite-background-5 { background: #fff; }
+
+.wsite-section { padding: 0; }
+.wsite-section-content { padding: 20px 0; }
+.wsite-section-content.compact { padding: 8px 0; }
+
+
+/* Separador */
+.styled-hr, hr {
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.15);
+  margin: 0 0 20px;
+  width: 100%;
+}
+
+/* =============================================
+   SOCIAL ICONS — solo iconos, no botones con texto
+   Replicamos el estilo .wsite-social-item original:
+   display inline-block, font-size 20px, iconos SVG pequeños
+   ============================================= */
+.wsite-social {
+  white-space: normal;
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.wsite-social-item {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  margin: 5px;
+  font-size: 0;                /* oculta texto */
+  text-indent: -9999px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 20px;
+  transition: all 300ms ease;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.wsite-social-item:first-child { margin-left: 0; }
+.wsite-social-item:last-child  { margin-right: 0; }
+.wsite-social-item:hover { opacity: 0.6; }
+
+/* Iconos individuales via SVG inline encodedados como background */
+.wsite-social-facebook {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z'/%3E%3C/svg%3E");
+}
+
+.wsite-social-twitter {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E");
+}
+
+.wsite-social-linkedin {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'/%3E%3C/svg%3E");
+}
+
+.wsite-social-mail {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
+}
+
+/* =============================================
+   TRABAJO / GALERÍA
+   ============================================= */
+.wsite-image {
+  padding-top: 0;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.wsite-image img {
+  margin-bottom: 10px;
+  max-width: 100%;
+}
+
+/* Borde en imágenes de trabajo (border-medium) */
+.wsite-image-border-medium img {
+  border: 1px solid #e0e0e0;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+/* Multicol */
+.wsite-multicol-table { width: 100%; border-collapse: collapse; }
+.wsite-multicol-col { vertical-align: top; }
+
+/* Galería — estilos base (grid y lightbox definidos en trabajo.html) */
+.imageGallery { margin: 0 0 20px; }
+
+/* =============================================
+   FORMS — replica exacta Weebly
+   ============================================= */
+.wsite-button {
+  display: inline-block;
+  height: auto;
+  padding: 0;
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+  transition: all 100ms ease-in-out;
+  cursor: pointer;
+}
+
+.wsite-button:hover { background-color: rgba(0,0,0,0.05); }
+
+.wsite-button .wsite-button-inner,
+.wsite-button-inner {
+  display: inline-block;
+  height: auto;
+  padding: 14px 30px;
+  background: transparent;
+  color: inherit;
+  letter-spacing: 0.03em;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* Form fields */
+.wsite-form-container { margin-top: 10px; }
+
+.formlist { min-height: inherit; }
+
+.wsite-form-label {
+  display: block;
+  padding: 0;
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: normal;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.wsite-form-fields-required-label { margin-bottom: 15px; }
+.form-required { color: red; }
+
+.wsite-form-field { margin: 5px 0; }
+
+.wsite-name-field .wsite-form-input-container { display: inline-block; width: 49%; }
+.wsite-form-input-first-name { padding-right: 5px; }
+.wsite-form-input-last-name  { padding-left: 5px; }
+
+.wsite-form-input,
+.wsite-input {
+  color: #000;
+  height: auto;
+  max-width: 370px;
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.4);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  border-radius: 0;
+  box-sizing: border-box;
+  transition: all 300ms ease;
+  -webkit-appearance: none;
+}
+
+.wsite-form-input:hover,
+.wsite-form-input:focus {
+  background-color: rgba(0,0,0,0.05);
+  border-color: #000;
+  outline: none;
+}
+
+textarea.wsite-form-input {
+  max-width: 370px;
+  width: 100%;
+  height: 200px;
+  resize: none;
+}
+
+.wsite-form-sublabel { display: none; }
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.footer-wrap { width: 100%; font-size: 14px; }
+
+.footer-wrap .wsite-footer { padding: 60px 40px; }
+
+/* Weebly branding footer */
+#weebly-footer-signup-container-v3 { display: none; } /* ocultamos en la versión propia */
+
+/* Nuestro footer custom */
+.site-footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 32px 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* =============================================
+   RESPONSIVE — <992px
+   ============================================= */
+@media screen and (max-width: 992px) {
+  /* Header m\u00e1s compacto en mobile */
+  .birdseye-header {
+    padding: 0 20px !important;
+    height: 60px;
+  }
+
+  /* Solo mostrar hamburger, ocultar nav de escritorio */
+  .hamburger     { display: flex !important; }
+  .desktop-nav   { display: none !important; }
+  .mobile-nav    { display: block; }
+
+  .main-wrap .container { padding: 30px 20px; }
+  .no-header-page .main-wrap { padding-top: 60px; }
+}
+
+@media screen and (max-width: 767px) {
+  .wsite-section { height: auto !important; }
+  .imageGallery > div { width: 49.95% !important; }
+  td.wsite-multicol-col { float: none; display: block; width: 100% !important; box-sizing: border-box; }
+
+  /* Hero mobile: altura ajustada y texto al fondo */
+  .wsite-header-section {
+    height: 420px;
+    background-position: 50% 20%;
+  }
+
+  /* Título más pequeño para que no se wrappee */
+  .wsite-content-title.hero-title {
+    font-size: 36px;
+    letter-spacing: 3px;
+    margin: 0 0 6px;
+  }
+
+  /* Subtítulo mobile */
+  .hero-subtitle,
+  .wsite-header-section .paragraph {
+    font-size: 11px !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  /* Más espacio inferior en mobile para bajar el texto */
+  .wsite-header-section .wsite-section-content {
+    padding: 0 20px 32px;
+  }
+}
