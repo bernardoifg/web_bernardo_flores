@@ -153,7 +153,7 @@ const T = {
     'contact.required': 'Indica campo requerido',
 
     /* ── footer ── */
-    'footer': '© 2025 Bernardo Flores — Head of Art &amp; UX/UI Designer',
+    'footer': '© 2026 Bernardo Flores — Head of Art &amp; UX/UI Designer',
   },
 
   en: {
@@ -305,7 +305,7 @@ const T = {
     'contact.required': 'Indicates required field',
 
     /* ── footer ── */
-    'footer': '© 2025 Bernardo Flores — Head of Art &amp; UX/UI Designer',
+    'footer': '© 2026 Bernardo Flores — Head of Art &amp; UX/UI Designer',
   }
 };
 
