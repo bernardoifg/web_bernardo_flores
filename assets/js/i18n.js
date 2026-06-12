@@ -38,8 +38,8 @@ const T = {
     /* Gallery captions — formato "Título|Descripción" */
     'cap.fullcarga':         'Fullcarga / Social Media Shorts|Dirección de Arte, diseño y animación.',
     'cap.fullcarga.case':    'Fullcarga / UX/UI Case Study|App de Venta de Recargas, Pago de Servicios y Pines. Diseño de 0 a fin de App y sitio web.',
-    'cap.ya.spots':          'YA Payments / Spots|Concepto, dirección de Arte, diseño y animación.',
-    'cap.ya.case':           'YA Payments / Case Study|UX/UI Design, investigación y prototipado.',
+    'cap.ya.spots':          'Ya Payments / Spots|Concepto, dirección de Arte, diseño y animación.',
+    'cap.ya.case':           'Ya Payments / Case Study|UX/UI Design, investigación y prototipado.',
     'cap.pagatodo.case':     'Banco PagaTodo / UX/UI Case Study|Plataforma bancaria multiperfilada para México. Rediseño y unificación de la experiencia para Web y App móvil.',
     'cap.iconx.mercury':     'Samsung / IconX Tangle – Mercury|Concepto, dirección de Arte, diseño y layout.',
     'cap.iconx.kimister':    'Samsung / IconX Tangle – Kimister|Concepto, dirección de Arte, diseño y layout.',
@@ -192,8 +192,8 @@ const T = {
     /* Gallery captions EN */
     'cap.fullcarga':         'Fullcarga / Social Media Shorts|Art Direction, design and animation.',
     'cap.fullcarga.case':    'Fullcarga / UX/UI Case Study|Mobile App for airtime sales, bill payments, and gift cards. End-to-end design of App and website.',
-    'cap.ya.spots':          'YA Payments / Spots|Concept, Art Direction, design and animation.',
-    'cap.ya.case':           'YA Payments / Case Study|UX/UI Design, research and prototyping.',
+    'cap.ya.spots':          'Ya Payments / Spots|Concept, Art Direction, design and animation.',
+    'cap.ya.case':           'Ya Payments / Case Study|UX/UI Design, research and prototyping.',
     'cap.pagatodo.case':     'Banco PagaTodo / UX/UI Case Study|Multi-profile banking platform for Mexico. Redesign and unification of Web and Mobile app experiences.',
     'cap.iconx.mercury':     'Samsung / IconX Tangle – Mercury|Concept, Art Direction, design and layout.',
     'cap.iconx.kimister':    'Samsung / IconX Tangle – Kimister|Concept, Art Direction, design and layout.',
