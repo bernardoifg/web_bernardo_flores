@@ -1378,3 +1378,302 @@ textarea.form-input {
     grid-column: span 1 / -1;
   }
 }
+
+/* =============================================
+   BENTO BATCH / GROUP GALLERY STYLES
+   ============================================= */
+.bento-group-gallery {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  flex-direction: column;
+}
+
+.bento-group-main {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background-color: #0b0b0c;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.bento-group-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: var(--transition-smooth);
+}
+
+.bento-item:hover .bento-group-main img {
+  transform: scale(1.03);
+}
+
+.bento-group-thumbs {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  height: 52px;
+  width: 100%;
+}
+
+.bento-group-thumb {
+  flex: 1;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background-color: #0b0b0c;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.bento-group-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.4;
+  transition: var(--transition-fast);
+}
+
+.bento-group-thumb.active {
+  border-color: var(--accent-color);
+}
+
+.bento-group-thumb.active img,
+.bento-group-thumb:hover img {
+  opacity: 1;
+}
+
+/* Desktop horizontal split for wide group cards */
+@media screen and (min-width: 769px) {
+  .bento-item.bento-wide .bento-group-gallery {
+    flex-direction: row;
+    height: 240px;
+  }
+  .bento-item.bento-wide .bento-group-main {
+    flex: 3;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+  .bento-item.bento-wide .bento-group-thumbs {
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    gap: 8px;
+  }
+}
+
+/* =============================================
+   GROUP MODAL (LOTE MODAL) STYLES
+   ============================================= */
+.group-modal {
+  width: 90vw;
+  max-width: 1200px;
+  height: 85vh;
+  background-color: #080809;
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 0;
+  color: var(--text-main);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.05) inset;
+  outline: none;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  display: none;
+  flex-direction: column;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.group-modal[open] {
+  display: flex;
+}
+
+.group-modal.open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.group-modal::backdrop {
+  background-color: rgba(4, 4, 5, 0.85);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.group-modal.open::backdrop {
+  opacity: 1;
+}
+
+.group-modal-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  z-index: 10;
+}
+
+.group-modal-close-btn:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--bg-color);
+}
+
+.group-modal-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 40px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.group-modal-header {
+  margin-bottom: 28px;
+  padding-right: 60px;
+}
+
+.group-modal-title {
+  font-family: var(--font-headings);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+.group-modal-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.group-modal-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.group-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+.group-modal-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.01);
+}
+.group-modal-content::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.group-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-bottom: 24px;
+}
+
+.group-card-item {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.group-card-item:hover {
+  border-color: var(--border-color-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+.group-card-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  background-color: #0b0b0c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.group-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: var(--transition-smooth);
+}
+
+.group-card-item:hover .group-card-media img {
+  transform: scale(1.02);
+}
+
+.group-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.group-card-title {
+  font-family: var(--font-headings);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.group-card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 992px) {
+  .group-modal-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .group-modal-container {
+    padding: 24px;
+  }
+  .group-modal-close-btn {
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+  .group-modal-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .group-modal-title {
+    font-size: 22px;
+  }
+}

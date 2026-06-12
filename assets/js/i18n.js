@@ -31,6 +31,8 @@ const T = {
     'work.filter.decor':   'Eventos & Decoración',
     'btn.behance':        'Ver en Behance',
     'btn.casestudy':      'Ver Case Study',
+    'btn.open_lote':      'Ver',
+    'desc.artes':         'Artes',
     'caption.req':        '* Indica campo requerido',
 
     /* Gallery captions — formato "Título|Descripción" */
@@ -184,6 +186,8 @@ const T = {
     'work.filter.decor':   'Events & Decoration',
     'btn.behance':    'View on Behance',
     'btn.casestudy':  'View Case Study',
+    'btn.open_lote':  'View',
+    'desc.artes':     'Artworks',
 
     /* Gallery captions EN */
     'cap.fullcarga':         'Fullcarga / Social Media Shorts|Art Direction, design and animation.',

@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initScrollSpy();
   initLightbox();
+  initGroupCards();
   preventActionBubbling();
 });
 
@@ -355,10 +356,147 @@ function initLightbox() {
     }
   });
   
+  window.openLightbox = (items, index) => {
+    currentItems = items;
+    currentIndex = index;
+    showLightboxItem();
+    modal.showModal();
+    setTimeout(() => {
+      modal.classList.add('open');
+    }, 10);
+  };
+  
   attachGalleryClicks();
   // Listen for language changes to update captions
   window.addEventListener('lang-changed', () => {
     // Re-read data-caption of active items
     setTimeout(attachGalleryClicks, 100);
+  });
+}
+
+/* ── 6. Bento Batch / Group Card & Modal Logic ── */
+function initGroupCards() {
+  const groupModal = document.getElementById('group-modal');
+  if (!groupModal) return;
+  
+  const closeBtn = groupModal.querySelector('.group-modal-close-btn');
+  const titleEl = document.getElementById('group-modal-title');
+  const subtitleEl = document.getElementById('group-modal-subtitle');
+  const gridEl = document.getElementById('group-modal-grid');
+  
+  // Close group modal
+  const closeGroupModal = () => {
+    groupModal.classList.remove('open');
+    setTimeout(() => {
+      groupModal.close();
+    }, 200);
+  };
+  
+  if (closeBtn) closeBtn.addEventListener('click', closeGroupModal);
+  groupModal.addEventListener('click', (e) => {
+    if (e.target === groupModal) closeGroupModal();
+  });
+  
+  // Initialize each group card in the grid
+  document.querySelectorAll('.bento-item.bento-group').forEach(groupCard => {
+    const mainImg = groupCard.querySelector('.bento-group-main img');
+    const thumbs = groupCard.querySelectorAll('.bento-group-thumb');
+    const subItemsData = groupCard.querySelectorAll('.group-sub-item');
+    const openBtn = groupCard.querySelector('.btn-open-group');
+    
+    // Thumbnail interactions (hover or click)
+    thumbs.forEach((thumb, idx) => {
+      const handleThumbSelection = () => {
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+        
+        // Swap main image
+        const subItem = subItemsData[idx];
+        if (subItem && mainImg) {
+          mainImg.src = subItem.dataset.full.replace('_orig', '');
+        }
+      };
+      
+      thumb.addEventListener('mouseenter', handleThumbSelection);
+      thumb.addEventListener('click', (e) => {
+        e.stopPropagation(); // prevent opening the group modal
+        handleThumbSelection();
+      });
+    });
+    
+    // Clicking main cover or the action button opens the Group Modal
+    const openGroup = () => {
+      const groupTitle = groupCard.querySelector('.bento-title').textContent;
+      const tags = Array.from(groupCard.querySelectorAll('.bento-tag')).map(t => t.textContent).join(' • ');
+      
+      titleEl.textContent = groupTitle;
+      const lang = localStorage.getItem('bf_lang') || 'es';
+      const textArtes = lang === 'en' ? `${subItemsData.length} Artworks` : `${subItemsData.length} Artes`;
+      subtitleEl.textContent = tags + ` • ${textArtes}`;
+      
+      gridEl.innerHTML = '';
+      
+      // We will create the card elements for the modal
+      const modalCards = [];
+      
+      subItemsData.forEach((subItem, idx) => {
+        const fullSrc = subItem.dataset.full;
+        const captionText = subItem.dataset.caption || '';
+        
+        // Parse caption
+        let title = '';
+        let desc = '';
+        if (captionText.includes('|')) {
+          const parts = captionText.split('|');
+          title = parts[0];
+          desc = parts[1];
+        } else {
+          title = captionText || groupTitle + ' - ' + (idx + 1);
+          desc = '';
+        }
+        
+        // Create the card element in the modal
+        const card = document.createElement('div');
+        card.className = 'group-card-item';
+        card.dataset.full = fullSrc;
+        card.dataset.caption = captionText;
+        card.dataset.link = subItem.dataset.link || '';
+        card.dataset.linkText = subItem.dataset.linkText || '';
+        
+        card.innerHTML = `
+          <div class="group-card-media">
+            <img src="${fullSrc.replace('_orig', '')}" alt="${title}" />
+          </div>
+          <div class="group-card-content">
+            <h4 class="group-card-title">${title}</h4>
+            <p class="group-card-desc">${desc}</p>
+          </div>
+        `;
+        
+        card.addEventListener('click', () => {
+          if (window.openLightbox) {
+            window.openLightbox(modalCards, idx);
+          }
+        });
+        
+        gridEl.appendChild(card);
+        modalCards.push(card);
+      });
+      
+      groupModal.showModal();
+      setTimeout(() => {
+        groupModal.classList.add('open');
+      }, 10);
+      
+      // Update custom cursor triggers inside modal
+      window.dispatchEvent(new Event('update-cursor-triggers'));
+    };
+    
+    if (mainImg) {
+      mainImg.closest('.bento-group-main').addEventListener('click', openGroup);
+    }
+    if (openBtn) {
+      openBtn.addEventListener('click', openGroup);
+    }
   });
 }
