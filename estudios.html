@@ -6,17 +6,26 @@
   <title>Bernardo Flores – ESTUDIOS</title>
   <meta name="description" content="Formación académica de Bernardo Flores – Licenciatura en Diseño Publicitario, IMP." />
   <meta property="og:title" content="Estudios – Bernardo Flores" />
+  
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-<body class="no-header-page" data-page="studies">
+<body data-page="studies">
 
-  <!-- HEADER -->
-  <div class="birdseye-header dark-nav" id="site-header">
+  <!-- ===================== CUSTOM CURSOR ===================== -->
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="birdseye-header scrolled" id="site-header">
     <div class="container nav-inner">
       <div class="logo">
-        <a href="index.html"><img src="./assets/images/bf-fondo.png" alt="Bernardo Flores" /></a>
+        <a href="index.html">
+          <img src="./assets/images/bf-fondo.png" alt="Bernardo Flores" />
+        </a>
       </div>
-      <div class="nav desktop-nav">
+
+      <!-- Desktop Navigation -->
+      <nav class="nav desktop-nav">
         <ul class="wsite-menu-default">
           <li><a href="index.html" class="wsite-menu-item" data-i18n="nav.about">SOBRE MÍ</a></li>
           <li><a href="trabajo.html" class="wsite-menu-item" data-i18n="nav.work">TRABAJO</a></li>
@@ -29,14 +38,20 @@
             <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
           </li>
         </ul>
-      </div>
-      <label class="hamburger" for="nav-toggle" aria-label="Menu"><span></span></label>
-    </div>
-  </div>
+      </nav>
 
-  <!-- Mobile nav -->
+      <!-- Hamburger mobile button -->
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Backdrop & Navigation Drawer -->
+  <div class="nav-backdrop" id="nav-backdrop"></div>
   <div class="mobile-nav" id="mobile-nav">
-    <label class="hamburger" for="nav-toggle" aria-label="Cerrar menu"><span></span></label>
     <ul class="wsite-menu-default">
       <li><a href="index.html" class="wsite-menu-item" data-i18n="nav.about">SOBRE MÍ</a></li>
       <li><a href="trabajo.html" class="wsite-menu-item" data-i18n="nav.work">TRABAJO</a></li>
@@ -51,62 +66,43 @@
     </ul>
   </div>
 
-  <!-- MAIN -->
-  <div class="main-wrap">
-    <div id="wsite-content" class="wsite-elements wsite-not-footer">
-      <div class="wsite-section wsite-body-section">
-        <div class="wsite-section-content">
-          <div class="container">
-            <div class="wsite-section-elements">
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main class="main-wrap">
+    <div class="container">
+      <h1 class="wsite-content-title" data-i18n="nav.studies">Estudios</h1>
 
-              <h2 class="wsite-content-title" data-i18n="edu.heading">Universidad</h2>
-              <div class="paragraph">
-                <strong data-i18n="edu.degree">Licenciatura en Diseño Publicitario</strong><br />
-                Instituto de Mercadotecnia y Publicidad (IMP)<br />
-                <span data-i18n="edu.obtained">2003 – 2007 | Título Obtenido</span><br />
-                <span data-i18n="edu.city">Ciudad de México.</span>
-              </div>
-
-              <hr class="styled-hr" />
-
-              <h2 class="wsite-content-title" data-i18n="edu.other">Otros Estudios</h2>
-              <div class="paragraph">
-                <ul>
-                  <li data-i18n="edu.other.li1">Seminario de Publicidad.</li>
-                  <li data-i18n="edu.other.li2">Introducción a Cinema 4D | ESCENA, Escuela de Animación</li>
-                </ul>
-              </div>
-
-            </div>
+      <div class="education-grid">
+        
+        <!-- University Card -->
+        <div class="education-card">
+          <h2 class="education-degree" data-i18n="edu.degree">Licenciatura en Diseño Publicitario</h2>
+          <div class="education-school">Instituto de Mercadotecnia y Publicidad (IMP)</div>
+          <div class="education-info">
+            <span data-i18n="edu.obtained">2003 – 2007 | Título Obtenido</span>
+            <span data-i18n="edu.city">Ciudad de México.</span>
           </div>
         </div>
+
+        <!-- Other Studies Card -->
+        <div class="other-studies-card">
+          <h3 data-i18n="edu.other">Otros Estudios</h3>
+          <ul class="other-studies-list">
+            <li data-i18n="edu.other.li1">Seminario de Publicidad.</li>
+            <li data-i18n="edu.other.li2">Introducción a Cinema 4D | ESCENA, Escuela de Animación</li>
+          </ul>
+        </div>
+
       </div>
     </div>
-  </div>
+  </main>
 
+  <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <p data-i18n="footer">&copy; 2025 Bernardo Flores &mdash; Head of Art &amp; UX/UI Designer</p>
   </footer>
 
   <script src="./assets/js/i18n.js"></script>
-  <script>
-    const header = document.getElementById('site-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        header.style.padding = '10px 40px';
-      } else {
-        header.style.padding = '20px 40px';
-      }
-    });
-
-    const mobileNav = document.getElementById('mobile-nav');
-    document.querySelectorAll('.hamburger').forEach(h => {
-      h.addEventListener('click', () => {
-        mobileNav.classList.toggle('open');
-        document.body.classList.toggle('nav-open');
-      });
-    });
-  </script>
+  <script src="./assets/js/main.js"></script>
 
 </body>
 </html>

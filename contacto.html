@@ -6,17 +6,26 @@
   <title>Bernardo Flores – CONTACTO</title>
   <meta name="description" content="Contacta a Bernardo Flores – bernardoifg@gmail.com | C. 55.1844.1995" />
   <meta property="og:title" content="Contacto – Bernardo Flores" />
+  
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-<body class="no-header-page" data-page="contact">
+<body data-page="contact">
 
-  <!-- HEADER -->
-  <div class="birdseye-header dark-nav" id="site-header">
+  <!-- ===================== CUSTOM CURSOR ===================== -->
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="birdseye-header scrolled" id="site-header">
     <div class="container nav-inner">
       <div class="logo">
-        <a href="index.html"><img src="./assets/images/bf-fondo.png" alt="Bernardo Flores" /></a>
+        <a href="index.html">
+          <img src="./assets/images/bf-fondo.png" alt="Bernardo Flores" />
+        </a>
       </div>
-      <div class="nav desktop-nav">
+
+      <!-- Desktop Navigation -->
+      <nav class="nav desktop-nav">
         <ul class="wsite-menu-default">
           <li><a href="index.html" class="wsite-menu-item" data-i18n="nav.about">SOBRE MÍ</a></li>
           <li><a href="trabajo.html" class="wsite-menu-item" data-i18n="nav.work">TRABAJO</a></li>
@@ -29,14 +38,20 @@
             <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
           </li>
         </ul>
-      </div>
-      <label class="hamburger" for="nav-toggle" aria-label="Menu"><span></span></label>
-    </div>
-  </div>
+      </nav>
 
-  <!-- Mobile nav -->
+      <!-- Hamburger mobile button -->
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Backdrop & Navigation Drawer -->
+  <div class="nav-backdrop" id="nav-backdrop"></div>
   <div class="mobile-nav" id="mobile-nav">
-    <label class="hamburger" for="nav-toggle" aria-label="Cerrar menu"><span></span></label>
     <ul class="wsite-menu-default">
       <li><a href="index.html" class="wsite-menu-item" data-i18n="nav.about">SOBRE MÍ</a></li>
       <li><a href="trabajo.html" class="wsite-menu-item" data-i18n="nav.work">TRABAJO</a></li>
@@ -51,125 +66,102 @@
     </ul>
   </div>
 
-  <!-- MAIN -->
-  <div class="main-wrap">
-    <div id="wsite-content" class="wsite-elements wsite-not-footer">
-      <div class="wsite-section wsite-body-section">
-        <div class="wsite-section-content">
-          <div class="container">
-            <div class="wsite-section-elements">
-
-              <h2 class="wsite-content-title" style="text-align:left;" data-i18n="contact.heading">Contacto</h2>
-
-              <div class="paragraph">
-                C. 55.1844.1995<br />
-                <a href="mailto:bernardoifg@gmail.com">bernardoifg@gmail.com</a><br />
-                Col. Balcones de la Herradura, Huixquilucan, México, D.F.
-              </div>
-
-              <!-- Social icons — solo iconos -->
-              <div style="text-align:left; margin-bottom: 30px;">
-                <span class="wsite-social wsite-social-default" style="text-align:left;">
-                  <a class="first-child wsite-social-item wsite-social-facebook"
-                     href="https://www.facebook.com/bherflow" target="_blank"
-                     aria-label="Facebook">&nbsp;</a>
-                  <a class="wsite-social-item wsite-social-twitter"
-                     href="https://twitter.com/bherflow" target="_blank"
-                     aria-label="Twitter">&nbsp;</a>
-                  <a class="last-child wsite-social-item wsite-social-linkedin"
-                     href="https://mx.linkedin.com/pub/bernardo-flores/24/844/4a0" target="_blank"
-                     aria-label="LinkedIn">&nbsp;</a>
-                </span>
-              </div>
-
-              <hr class="styled-hr" />
-
-              <!-- Formulario de contacto — replica exacta Weebly -->
-              <div class="paragraph" data-i18n="contact.intro">
-                Siéntete libre de compartir tu información y me pondré en contacto contigo.
-              </div>
-
-              <div class="wsite-form-container">
-                <div class="wsite-form-fields-required-label">
-                  <span class="form-required">*</span> <span data-i18n="contact.required">Indica campo requerido</span>
-                </div>
-                <form id="wsite-com-native-form" onsubmit="handleSubmit(event)">
-
-                  <!-- Nombre -->
-                  <div class="wsite-form-field">
-                    <label class="wsite-form-label"><span data-i18n="contact.name">Nombre</span> <span class="form-required">*</span></label>
-                    <div class="wsite-form-input-container">
-                      <input class="wsite-form-input" type="text" name="name" required />
-                    </div>
-                  </div>
-
-                  <!-- Email -->
-                  <div class="wsite-form-field">
-                    <label class="wsite-form-label">Email <span class="form-required">*</span></label>
-                    <div class="wsite-form-input-container">
-                      <input class="wsite-form-input" type="email" name="email" required />
-                    </div>
-                  </div>
-
-                  <!-- Comentario -->
-                  <div class="wsite-form-field">
-                    <label class="wsite-form-label"><span data-i18n="contact.comment">Comentario</span> <span class="form-required">*</span></label>
-                    <div class="wsite-form-input-container">
-                      <textarea class="wsite-form-input" name="comment" required></textarea>
-                    </div>
-                  </div>
-
-                  <!-- Submit -->
-                  <div class="wsite-form-field">
-                    <button type="submit" class="wsite-button wsite-button-small">
-                      <span class="wsite-button-inner" data-i18n="contact.submit">Enviar</span>
-                    </button>
-                  </div>
-
-                </form>
-              </div>
-
-            </div>
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main class="main-wrap">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-card">
+          <h1 class="wsite-content-title" style="text-align: center; margin-bottom: 24px;" data-i18n="contact.heading">Contacto</h1>
+          
+          <!-- Contact Info -->
+          <div class="paragraph" style="text-align: center; font-size: 15px; margin-bottom: 32px; color: var(--text-muted);">
+            C. 55.1844.1995<br />
+            <a href="mailto:bernardoifg@gmail.com" style="text-decoration: underline; color: var(--text-main);">bernardoifg@gmail.com</a><br />
+            Col. Balcones de la Herradura, Huixquilucan, México, D.F.
           </div>
+
+          <!-- Social Buttons -->
+          <div class="social-buttons" style="justify-content: center; margin-bottom: 40px;">
+            <a class="social-btn" href="https://www.behance.net/bherflow" target="_blank" aria-label="Behance">
+              <svg viewBox="0 0 24 24"><path d="M22 14.364h-6.816A3.412 3.412 0 0019 16c1.091 0 1.964-.491 2.364-1.327h1.636c-.454 2.11-2.291 3.527-4 3.527a5.163 5.163 0 01-5.182-5.182 5.145 5.145 0 015.182-5.182c3.164 0 5 2.182 5 5.182v1.364zM19 10.636c-1 0-1.818.727-2.182 1.636h4.364A2.083 2.083 0 0019 10.636zM9.455 12c.982 0 1.836-.327 2.291-1.018.527-.673.727-1.782.727-2.618 0-.836-.2-1.927-.727-2.618C11.291 5.091 10.436 4.764 9.455 4.764H2v14.4h7.455a5.533 5.533 0 003.527-.927c1.036-.8 1.473-2.11 1.473-3.6 0-1.49-.436-2.764-1.473-3.564-.472-.673-1.309-1.073-2.291-1.073v-.036zm-4.364-4.8h4.364c1.091 0 1.818.545 1.818 1.455S10.545 10.1 9.455 10.1H5.091V7.2zm4.364 8.727H5.091V12.7H9.455c1.091 0 1.818.545 1.818 1.455s-.727 1.472-1.818 1.472zM15 6h8v1.5h-8V6z"/></svg>
+            </a>
+            <a class="social-btn" href="https://mx.linkedin.com/pub/bernardo-flores/24/844/4a0" target="_blank" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a class="social-btn" href="mailto:bernardoifg@gmail.com" target="_blank" aria-label="Mail">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+          </div>
+
+          <hr class="styled-hr" style="margin: 32px 0;" />
+
+          <!-- Form Description -->
+          <div class="contact-intro" data-i18n="contact.intro">
+            Siéntete libre de compartir tu información y me pondré en contacto contigo.
+          </div>
+
+          <!-- Contact Form -->
+          <form id="contact-form" onsubmit="handleContactSubmit(event)">
+            <!-- Name -->
+            <div class="form-group">
+              <label class="form-label" for="form-name">
+                <span data-i18n="contact.name">Nombre</span> <span class="form-required">*</span>
+              </label>
+              <input class="form-input" id="form-name" type="text" name="name" required />
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label class="form-label" for="form-email">Email <span class="form-required">*</span></label>
+              <input class="form-input" id="form-email" type="email" name="email" required />
+            </div>
+
+            <!-- Comment -->
+            <div class="form-group">
+              <label class="form-label" for="form-comment">
+                <span data-i18n="contact.comment">Comentario</span> <span class="form-required">*</span>
+              </label>
+              <textarea class="form-input" id="form-comment" name="comment" required></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-submit-container">
+              <button class="btn-submit" type="submit">
+                <span id="btn-submit-text" data-i18n="contact.submit">Enviar</span>
+              </button>
+            </div>
+
+            <!-- Status Message -->
+            <div class="form-status" id="form-status"></div>
+          </form>
         </div>
       </div>
     </div>
-  </div>
+  </main>
 
+  <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <p data-i18n="footer">&copy; 2025 Bernardo Flores &mdash; Head of Art &amp; UX/UI Designer</p>
   </footer>
 
   <script src="./assets/js/i18n.js"></script>
+  <script src="./assets/js/main.js"></script>
+  
   <script>
-    const header = document.getElementById('site-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        header.style.padding = '10px 40px';
-      } else {
-        header.style.padding = '20px 40px';
-      }
-    });
-
-    const mobileNav = document.getElementById('mobile-nav');
-    document.querySelectorAll('.hamburger').forEach(h => {
-      h.addEventListener('click', () => {
-        mobileNav.classList.toggle('open');
-        document.body.classList.toggle('nav-open');
-      });
-    });
-
-    function handleSubmit(e) {
+    function handleContactSubmit(e) {
       e.preventDefault();
       const form = e.target;
       const isEn = localStorage.getItem('bf_lang') === 'en';
       
+      const btnText = document.getElementById('btn-submit-text');
       const btn = form.querySelector('button[type="submit"]');
-      const btnInner = btn.querySelector('.wsite-button-inner');
-      const originalText = btnInner.innerHTML;
+      const statusDiv = document.getElementById('form-status');
       
-      btnInner.innerHTML = isEn ? 'Sending...' : 'Enviando...';
+      const originalText = btnText.innerHTML;
+      btnText.innerHTML = isEn ? 'Sending...' : 'Enviando...';
       btn.disabled = true;
+      statusDiv.className = 'form-status';
+      statusDiv.innerHTML = '';
 
       fetch("https://formsubmit.co/ajax/bernardoifg@gmail.com", {
         method: "POST",
@@ -177,18 +169,24 @@
       })
       .then(response => {
         if (response.ok) {
-          alert(isEn ? 'Thank you for your message! I will get in touch with you soon.' : '¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.');
+          statusDiv.classList.add('success');
+          statusDiv.innerHTML = isEn 
+            ? 'Thank you! Your message has been sent successfully.' 
+            : '¡Gracias! Tu mensaje ha sido enviado con éxito.';
           form.reset();
         } else {
-          alert(isEn ? 'Oops! There was a problem submitting your form.' : '¡Ups! Hubo un problema al enviar el formulario.');
+          throw new Error('Response not OK');
         }
       })
       .catch(error => {
-        alert(isEn ? 'Oops! There was a problem submitting your form.' : '¡Ups! Hubo un problema al enviar el formulario.');
+        statusDiv.classList.add('error');
+        statusDiv.innerHTML = isEn 
+          ? 'Oops! There was a problem submitting your form.' 
+          : '¡Ups! Hubo un problema al enviar el formulario.';
         console.error(error);
       })
       .finally(() => {
-        btnInner.innerHTML = originalText;
+        btnText.innerHTML = originalText;
         btn.disabled = false;
       });
     }

@@ -24,13 +24,18 @@ const T = {
 
     /* ── trabajo.html ── */
     'work.heading':       'Trabajo',
+    'work.filter.all':    'Todos',
+    'work.filter.fintech': 'Fintech / UX',
+    'work.filter.samsung': 'Samsung',
+    'work.filter.branding': 'Branding & Publicidad',
+    'work.filter.decor':   'Eventos & Decoración',
     'btn.behance':        'Ver en Behance',
     'btn.casestudy':      'Ver Case Study',
     'caption.req':        '* Indica campo requerido',
 
     /* Gallery captions — formato "Título|Descripción" */
     'cap.fullcarga':         'Fullcarga / Social Media Shorts|Dirección de Arte, diseño y animación.',
-    'cap.fullcarga.case':    'Fullcarga / UX/UI Case Study|App de Venta de Recargas, Pago de Servicios y Pines. Rediseño y unificación de la experiencia para Web y App móvil.',
+    'cap.fullcarga.case':    'Fullcarga / UX/UI Case Study|App de Venta de Recargas, Pago de Servicios y Pines. Diseño de 0 a fin de App y sitio web.',
     'cap.ya.spots':          'YA Payments / Spots|Concepto, dirección de Arte, diseño y animación.',
     'cap.ya.case':           'YA Payments / Case Study|UX/UI Design, investigación y prototipado.',
     'cap.pagatodo.case':     'Banco PagaTodo / UX/UI Case Study|Plataforma bancaria multiperfilada para México. Rediseño y unificación de la experiencia para Web y App móvil.',
@@ -46,11 +51,11 @@ const T = {
     'cap.vr.alpinista':      'Samsung / Gear VR – Alpinista|Concepto, dirección de arte, diseño y layout.',
     'cap.vr.ciclista':       'Samsung / Gear VR – Ciclista|Concepto, dirección de arte, diseño y layout.',
     'cap.vr.gamer':          'Samsung / Gear VR – Gamer|Concepto, dirección de arte, diseño y layout.',
-    'cap.galaxy.a8.tia':     'Samsung / Galaxy A8 – Tía y niño|Dirección de arte, diseño y layout.',
+    'cap.galaxy.a8.tia':     'Samsung / Galaxy A8 – Divertida|Dirección de arte, diseño y layout.',
     'cap.galaxy.a8.rockero': 'Samsung / Galaxy A8 – Rockero|Dirección de arte, diseño y layout.',
-    'cap.qled.5':            'Samsung / QLED Active Voice 5|Dirección de arte, diseño y layout.',
-    'cap.qled.1':            'Samsung / QLED Active Voice 1|Dirección de arte, diseño y layout.',
-    'cap.qled.6':            'Samsung / QLED Active Voice 6|Dirección de arte, diseño y layout.',
+    'cap.qled.5':            'Samsung / QLED Active Voice Woof|Dirección de arte, diseño y layout.',
+    'cap.qled.1':            'Samsung / QLED Active Voice Crash|Dirección de arte, diseño y layout.',
+    'cap.qled.6':            'Samsung / QLED Active Voice Crunch|Dirección de arte, diseño y layout.',
     'cap.s8pink.taxco':      'Samsung / S8 PINK – Taxco|Dirección de arte, retoque fotográfico, diseño y layout.',
     'cap.s8pink.cabos':      'Samsung / S8 PINK – Los Cabos|Dirección de arte, retoque fotográfico, diseño y layout.',
     'cap.sos.city':          'Samsung / SOS City|Dirección de arte, diseño y layout.',
@@ -60,29 +65,28 @@ const T = {
     'cap.vuelve':            'Samsung / Vuelve a Mirar|Concepto, dirección de arte, copy, diseño y layout.',
     'cap.buds':              'Samsung / Galaxy Buds Live|Dirección de Arte, diseño y layout.',
     'cap.kids':              'Samsung / Kids Mode|Dirección de Arte, diseño y layout.',
-    'cap.cancer.poster':     'Samsung ESR / Cáncer de mama|Concepto, dirección de arte, layout.',
-    'cap.cancer.fb5':        'Samsung ESR / Cáncer de mama – Facebook|Concepto, dirección de arte, layout.',
-    'cap.cancer.fb1':        'Samsung ESR / Cáncer de mama – Facebook|Concepto, dirección de arte, layout.',
-    'cap.cancer.fb3':        'Samsung ESR / Cáncer de mama – Facebook|Concepto, dirección de arte, layout.',
-    'cap.interaccion':       'Samsung ESR / Cáncer de mama – Interacción|Material interactivo que te invita a utilizar 2 dedos y explorar.',
-    'cap.svoice.1':          'Samsung / S Voice|Concepto, dirección de arte, retoque, diseño y layout.',
-    'cap.svoice.2':          'Samsung / S Voice|Concepto, dirección de arte, retoque, diseño y layout.',
-    'cap.comparte.1':        'Samsung / Comparte al instante|Concepto, dirección de arte, copy, retoque, diseño y layout.',
-    'cap.comparte.2':        'Samsung / Comparte al instante 2|Concepto, dirección de arte, copy, retoque, diseño y layout.',
-    'cap.gmusic.1':          'Samsung / Google Music|Concepto, dirección de arte, diseño y layout.',
-    'cap.gmusic.2':          'Samsung / Google Music 2|Concepto, dirección de arte, diseño y layout.',
+    'cap.cancer.poster':     'Samsung ESR / Cáncer de mama – Tócalas sin miedo|Concepto, dirección de arte, layout.',
+    'cap.cancer.fb5':        'Samsung ESR / Cáncer de mama – No me ha dolido nada|Concepto, dirección de arte, layout.',
+    'cap.cancer.fb1':        'Samsung ESR / Cáncer de mama – A mí no me pasa|Concepto, dirección de arte, layout.',
+    'cap.cancer.fb3':        'Samsung ESR / Cáncer de mama – Solo es una bolita|Concepto, dirección de arte, layout.',
+    'cap.interaccion':       'Samsung ESR / Cáncer de mama – Desliza 2 dedos|Material interactivo que te invita a utilizar 2 dedos y explorar.',
+    'cap.svoice.1':          'Samsung / S Voice – Accidente|Concepto, dirección de arte, retoque, diseño y layout.',
+    'cap.svoice.2':          'Samsung / S Voice – Cicatriz|Concepto, dirección de arte, retoque, diseño y layout.',
+    'cap.comparte.1':        'Samsung / Comparte al instante – Caballo|Concepto, dirección de arte, copy, retoque, diseño y layout.',
+    'cap.comparte.2':        'Samsung / Comparte al instante – Skater|Concepto, dirección de arte, copy, retoque, diseño y layout.',
+    'cap.gmusic.1':          'Samsung / Google Play Music – Washawashear|Concepto, dirección de arte, diseño y layout.',
+    'cap.gmusic.2':          'Samsung / Google Play Music – Gustos Culposos|Concepto, dirección de arte, diseño y layout.',
     'cap.corbatas':          'Samsung / Corbatas|Concepto, dirección de arte y layout.',
     'cap.regalos':           'Samsung / Mejores Regalos|Concepto, dirección de arte, retoque, diseño y layout.',
     'cap.note10':            'Samsung / Note 10.1|Concepto, dirección de arte y layout.',
-    'cap.under.buen1':       'Under Armour / Buen Fin|Concepto, dirección de Arte, diseño y layout.',
-    'cap.under.buen2':       'Under Armour / Buen Fin Xmas 2|Concepto, dirección de Arte, diseño y layout.',
-    'cap.under.buen3':       'Under Armour / Buen Fin Xmas|Concepto, dirección de Arte, diseño y layout.',
-    'cap.under.g':           'Under Armour|Concepto, dirección de Arte, diseño y layout.',
-    'cap.under.oferta':      'Under Armour / Oferta|Concepto, dirección de Arte, diseño y layout.',
+    'cap.under.buen1':       'Under Armour / Rompe tu récord|Concepto, dirección de Arte, diseño y layout.',
+    'cap.under.buen2':       'Under Armour / Convierte tus sueños en logros|Concepto, dirección de Arte, diseño y layout.',
+    'cap.under.buen3':       'Under Armour / Termina el año con una nueva meta|Concepto, dirección de Arte, diseño y layout.',
+    'cap.under.g':           'Under Armour / Corre otro maratón|Concepto, dirección de Arte, diseño y layout.',
+    'cap.under.oferta':      'Under Armour / Ve por todo|Concepto, dirección de Arte, diseño y layout.',
     'cap.greenpeace':        'Greenpeace / Árbol de la vida / Eagle Award (Plata)|Dirección de arte, dirección de fotografía.',
-    'cap.garra.003':         'Garra Negra|Dirección de arte, diseño y layout.',
-    'cap.garra.006':         'Garra Negra|Dirección de arte, diseño y layout.',
-    'cap.garra.007':         'Garra Negra|Dirección de arte, diseño y layout.',
+    'cap.garra.003':         'Logo Garra Negra|Dirección de arte, diseño y layout.',
+    'cap.garra.006':         'Label Garra Negra|Dirección de arte, diseño y layout.',
     'cap.garra.botella':     'Garra Negra / Botella|Dirección de arte, diseño y layout.',
     'cap.alpen':             'Alpen / Lo mejor de lo mejor|Dirección de arte, diseño y layout.',
     'cap.docker.spring1':    'Dockers / Spring 2010|Conceptualización y diseño.',
@@ -157,14 +161,14 @@ const T = {
     'nav.about':      'ABOUT ME',
     'nav.work':       'WORK',
     'nav.experience': 'EXPERIENCE',
-    'nav.studies':    'STUDIES',
+    'nav.studies':    'EDUCATION',
     'nav.contact':    'CONTACT',
 
     /* ── Page titles ── */
     'title.about':      'Bernardo Flores – ABOUT ME',
     'title.work':       'Bernardo Flores – WORK',
     'title.experience': 'Bernardo Flores – EXPERIENCE',
-    'title.studies':    'Bernardo Flores – STUDIES',
+    'title.studies':    'Bernardo Flores – EDUCATION',
     'title.contact':    'Bernardo Flores – CONTACT',
 
     /* ── index.html ── */
@@ -173,12 +177,17 @@ const T = {
 
     /* ── trabajo.html ── */
     'work.heading':   'Work',
+    'work.filter.all':    'All',
+    'work.filter.fintech': 'Fintech / UX',
+    'work.filter.samsung': 'Samsung',
+    'work.filter.branding': 'Branding & Advertising',
+    'work.filter.decor':   'Events & Decoration',
     'btn.behance':    'View on Behance',
     'btn.casestudy':  'View Case Study',
 
     /* Gallery captions EN */
     'cap.fullcarga':         'Fullcarga / Social Media Shorts|Art Direction, design and animation.',
-    'cap.fullcarga.case':    'Fullcarga / UX/UI Case Study|Mobile App for airtime sales, bill payments, and gift cards. UX/UI redesign and optimization.',
+    'cap.fullcarga.case':    'Fullcarga / UX/UI Case Study|Mobile App for airtime sales, bill payments, and gift cards. End-to-end design of App and website.',
     'cap.ya.spots':          'YA Payments / Spots|Concept, Art Direction, design and animation.',
     'cap.ya.case':           'YA Payments / Case Study|UX/UI Design, research and prototyping.',
     'cap.pagatodo.case':     'Banco PagaTodo / UX/UI Case Study|Multi-profile banking platform for Mexico. Redesign and unification of Web and Mobile app experiences.',
@@ -194,11 +203,11 @@ const T = {
     'cap.vr.alpinista':      'Samsung / Gear VR – Mountaineer|Concept, Art Direction, design and layout.',
     'cap.vr.ciclista':       'Samsung / Gear VR – Cyclist|Concept, Art Direction, design and layout.',
     'cap.vr.gamer':          'Samsung / Gear VR – Gamer|Concept, Art Direction, design and layout.',
-    'cap.galaxy.a8.tia':     'Samsung / Galaxy A8 – Aunt & Child|Art Direction, design and layout.',
+    'cap.galaxy.a8.tia':     'Samsung / Galaxy A8 – Fun|Art Direction, design and layout.',
     'cap.galaxy.a8.rockero': 'Samsung / Galaxy A8 – Rocker|Art Direction, design and layout.',
-    'cap.qled.5':            'Samsung / QLED Active Voice 5|Art Direction, design and layout.',
-    'cap.qled.1':            'Samsung / QLED Active Voice 1|Art Direction, design and layout.',
-    'cap.qled.6':            'Samsung / QLED Active Voice 6|Art Direction, design and layout.',
+    'cap.qled.5':            'Samsung / QLED Active Voice Woof|Art Direction, design and layout.',
+    'cap.qled.1':            'Samsung / QLED Active Voice Crash|Art Direction, design and layout.',
+    'cap.qled.6':            'Samsung / QLED Active Voice Crunch|Art Direction, design and layout.',
     'cap.s8pink.taxco':      'Samsung / S8 PINK – Taxco|Art Direction, photo retouching, design and layout.',
     'cap.s8pink.cabos':      'Samsung / S8 PINK – Los Cabos|Art Direction, photo retouching, design and layout.',
     'cap.sos.city':          'Samsung / SOS City|Art Direction, design and layout.',
@@ -208,29 +217,28 @@ const T = {
     'cap.vuelve':            'Samsung / Look Again|Concept, Art Direction, copy, design and layout.',
     'cap.buds':              'Samsung / Galaxy Buds Live|Art Direction, design and layout.',
     'cap.kids':              'Samsung / Kids Mode|Art Direction, design and layout.',
-    'cap.cancer.poster':     'Samsung ESR / Breast Cancer|Concept, Art Direction, layout.',
-    'cap.cancer.fb5':        'Samsung ESR / Breast Cancer – Facebook|Concept, Art Direction, layout.',
-    'cap.cancer.fb1':        'Samsung ESR / Breast Cancer – Facebook|Concept, Art Direction, layout.',
-    'cap.cancer.fb3':        'Samsung ESR / Breast Cancer – Facebook|Concept, Art Direction, layout.',
-    'cap.interaccion':       'Samsung ESR / Breast Cancer – Interaction|Interactive material inviting users to explore with 2 fingers.',
-    'cap.svoice.1':          'Samsung / S Voice|Concept, Art Direction, retouch, design and layout.',
-    'cap.svoice.2':          'Samsung / S Voice|Concept, Art Direction, retouch, design and layout.',
-    'cap.comparte.1':        'Samsung / Share Instantly|Concept, Art Direction, copy, retouch, design and layout.',
-    'cap.comparte.2':        'Samsung / Share Instantly 2|Concept, Art Direction, copy, retouch, design and layout.',
-    'cap.gmusic.1':          'Samsung / Google Music|Concept, Art Direction, design and layout.',
-    'cap.gmusic.2':          'Samsung / Google Music 2|Concept, Art Direction, design and layout.',
+    'cap.cancer.poster':     'Samsung ESR / Breast Cancer – Touch Them Without Fear|Concept, Art Direction, layout.',
+    'cap.cancer.fb5':        'Samsung ESR / Breast Cancer – It Didn\'t Hurt at All|Concept, Art Direction, layout.',
+    'cap.cancer.fb1':        'Samsung ESR / Breast Cancer – It Doesn\'t Happen to Me|Concept, Art Direction, layout.',
+    'cap.cancer.fb3':        'Samsung ESR / Breast Cancer – It\'s Just a Little Lump|Concept, Art Direction, layout.',
+    'cap.interaccion':       'Samsung ESR / Breast Cancer – Swipe 2 Fingers|Interactive material inviting users to explore with 2 fingers.',
+    'cap.svoice.1':          'Samsung / S Voice – Accident|Concept, Art Direction, retouch, design and layout.',
+    'cap.svoice.2':          'Samsung / S Voice – Scar|Concept, Art Direction, retouch, design and layout.',
+    'cap.comparte.1':        'Samsung / Share Instantly – Horse|Concept, Art Direction, copy, retouch, design and layout.',
+    'cap.comparte.2':        'Samsung / Share Instantly – Skater|Concept, Art Direction, copy, retouch, design and layout.',
+    'cap.gmusic.1':          'Samsung / Google Play Music – Washawashear|Concept, Art Direction, design and layout.',
+    'cap.gmusic.2':          'Samsung / Google Play Music – Guilty Pleasures|Concept, Art Direction, design and layout.',
     'cap.corbatas':          'Samsung / Ties|Concept, Art Direction and layout.',
     'cap.regalos':           'Samsung / Best Gifts|Concept, Art Direction, retouch, design and layout.',
     'cap.note10':            'Samsung / Note 10.1|Concept, Art Direction and layout.',
-    'cap.under.buen1':       'Under Armour / Buen Fin|Concept, Art Direction, design and layout.',
-    'cap.under.buen2':       'Under Armour / Buen Fin Xmas 2|Concept, Art Direction, design and layout.',
-    'cap.under.buen3':       'Under Armour / Buen Fin Xmas|Concept, Art Direction, design and layout.',
-    'cap.under.g':           'Under Armour|Concept, Art Direction, design and layout.',
-    'cap.under.oferta':      'Under Armour / Sale|Concept, Art Direction, design and layout.',
+    'cap.under.buen1':       'Under Armour / Break Your Record|Concept, Art Direction, design and layout.',
+    'cap.under.buen2':       'Under Armour / Turn Your Dreams into Achievements|Concept, Art Direction, design and layout.',
+    'cap.under.buen3':       'Under Armour / End the Year with a New Goal|Concept, Art Direction, design and layout.',
+    'cap.under.g':           'Under Armour / Run Another Marathon|Concept, Art Direction, design and layout.',
+    'cap.under.oferta':      'Under Armour / Go for It All|Concept, Art Direction, design and layout.',
     'cap.greenpeace':        'Greenpeace / Tree of Life / Eagle Award (Silver)|Art Direction, photography direction.',
-    'cap.garra.003':         'Garra Negra|Art Direction, design and layout.',
-    'cap.garra.006':         'Garra Negra|Art Direction, design and layout.',
-    'cap.garra.007':         'Garra Negra|Art Direction, design and layout.',
+    'cap.garra.003':         'Logo Garra Negra|Art Direction, design and layout.',
+    'cap.garra.006':         'Label Garra Negra|Art Direction, design and layout.',
     'cap.garra.botella':     'Garra Negra / Bottle|Art Direction, design and layout.',
     'cap.alpen':             'Alpen / The Best of the Best|Art Direction, design and layout.',
     'cap.docker.spring1':    'Dockers / Spring 2010|Conceptualization and design.',
@@ -284,7 +292,7 @@ const T = {
     'edu.city':      'Mexico City.',
     'edu.other.li1': 'Advertising Seminar.',
     'edu.other.li2': 'Introduction to Cinema 4D | ESCENA, Animation School',
-    'edu.other':     'Other Studies',
+    'edu.other':     'Other Education',
 
     /* ── contacto.html ── */
     'contact.heading':  'Contact',
@@ -316,7 +324,13 @@ function setLang(lang) {
   /* Update all [data-i18n] elements (innerHTML) */
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
-    if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+    if (T[lang][key] !== undefined) {
+      let val = T[lang][key];
+      if (val.includes('|')) {
+        val = val.split('|')[1];
+      }
+      el.innerHTML = val;
+    }
   });
 
   /* Update all [data-i18n-ph] placeholders */
@@ -335,6 +349,9 @@ function setLang(lang) {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('lang-active', btn.dataset.lang === lang);
   });
+
+  /* Notify other components of language change */
+  window.dispatchEvent(new Event('lang-changed'));
 }
 
 /* ── Init: apply saved lang on page load ── */

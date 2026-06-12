@@ -3,333 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bernardo Flores Es – TRABAJO</title>
+  <title>Bernardo Flores – TRABAJO</title>
   <meta name="description" content="Portfolio de trabajo de Bernardo Flores – Fullcarga, YA Payments, Samsung y más." />
-  <meta property="og:title" content="Trabajo – Bernardo Flores Es" />
+  <meta property="og:title" content="Trabajo – Bernardo Flores" />
   <meta property="og:image" content="./assets/images/fullcarga.png" />
+  
   <link rel="stylesheet" href="./assets/css/style.css" />
-
-  <style>
-    /* ── Gallery grid — réplica exacta del galleryImageHolder de Weebly ── */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5px;
-      margin-bottom: 20px;
-    }
-
-    /* Celda: ratio 4:3 fijo igual al original (padding-bottom: 75%) */
-    .gallery-grid .gitem {
-      position: relative;
-      width: 100%;
-      padding-bottom: 75%;          /* ratio 4:3 — todas las celdas igual */
-      overflow: hidden;
-      cursor: zoom-in;
-      background: #fff;
-      box-sizing: border-box;
-    }
-
-    /* Marco blanco: border 1px + padding 3px — galleryImageBorder del original */
-    .gallery-grid .gitem img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      max-width: calc(100% - 8px);  /* respeta el padding de 4px c/lado */
-      max-height: calc(100% - 8px);
-      width: auto;
-      height: auto;
-      border: 1px solid #ccc;
-      padding: 3px;                 /* fondo blanco entre imagen y borde */
-      background: #fff;
-      box-sizing: border-box;
-      display: block;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .gallery-grid .gitem:hover img {
-      transform: translate(-50%, -50%) scale(1.04);
-      opacity: 0.88;
-    }
-
-    /* Dos columnas */
-    .gallery-2col {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .gallery-2col .gitem {
-      border: 1px solid #e0e0e0;
-      padding: 3px;
-      box-sizing: border-box;
-      cursor: zoom-in;
-      line-height: 0;
-      background: #fff;
-    }
-
-    /* Tres columnas */
-    .gallery-3col {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .gallery-3col .gitem {
-      border: 1px solid #e0e0e0;
-      padding: 3px;
-      box-sizing: border-box;
-      cursor: zoom-in;
-      line-height: 0;
-      background: #fff;
-    }
-
-    /* Contenedor de imagen con aspect-ratio 4:3 para consistencia */
-    .gallery-2col .gitem .img-wrap,
-    .gallery-3col .gitem .img-wrap {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      box-sizing: border-box;
-      background: #f0f0f0;
-    }
-
-    .gallery-2col .gitem .img-wrap img,
-    .gallery-3col .gitem .img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .gallery-2col .gitem:hover .img-wrap img,
-    .gallery-3col .gitem:hover .img-wrap img {
-      transform: scale(1.04);
-      opacity: 0.88;
-    }
-
-    /* Botón de link para Fullcarga / YA Payments */
-    /* contenedor centrado para el botón de link */
-    .project-link-wrap {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .project-link-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 18px;
-      border: 1px solid #222;
-      color: #222;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-      background: transparent;
-    }
-    .project-link-btn:hover {
-      background: #222;
-      color: #fff;
-    }
-    .project-link-btn svg { flex-shrink: 0; }
-
-    /* Botón dentro del lightbox caption */
-    #lightbox-caption .lb-link-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 10px;
-      padding: 6px 14px;
-      border: 1px solid rgba(255,255,255,0.7);
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-      background: transparent;
-    }
-    #lightbox-caption .lb-link-btn:hover {
-      background: rgba(255,255,255,0.15);
-    }
-    .wsite-image-wrap {
-      margin-bottom: 30px;
-      line-height: 0;
-    }
-
-    .wsite-image-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: opacity 0.3s ease;
-    }
-
-    .wsite-image-wrap a:hover img { opacity: 0.85; }
-
-    /* ── LIGHTBOX ── */
-    #lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.93);
-      backdrop-filter: blur(6px);
-      align-items: center;
-      justify-content: center;
-      cursor: zoom-out;
-    }
-
-    #lightbox.active { display: flex; }
-
-    /* Lightbox: columna — imagen arriba, caption adentro superpuesto */
-    #lightbox {
-      flex-direction: column;
-      gap: 0;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Wrapper: abraza el ancho de la imagen — caption hereda ese mismo ancho */
-    #lightbox-media {
-      display: inline-flex;
-      flex-direction: column;
-      max-width: 90vw;
-      max-height: 90vh;
-      box-shadow: 0 12px 80px rgba(0,0,0,0.25);
-    }
-
-    #lightbox img {
-      max-width: 90vw;
-      max-height: 82vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      animation: lb-in 0.22s ease;
-    }
-
-    /* Caption: barra oscura del MISMO ANCHO que la imagen, pegada justo debajo */
-    #lightbox-caption {
-      background: rgba(0, 0, 0, 0.82);
-      color: #fff;
-      padding: 10px 18px 12px;
-      margin: 0;                  /* elimina margin default del <p> */
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      line-height: 1.55;
-      text-align: left;
-      pointer-events: none;
-      flex-shrink: 0;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    #lightbox-caption strong {
-      display: block;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 3px;
-    }
-
-    @keyframes lb-in {
-      from { opacity: 0; transform: scale(0.95); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-
-    /* Botón cerrar */
-    #lightbox-close {
-      position: fixed;
-      top: 20px;
-      right: 28px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 28px;
-      font-weight: 300;
-      color: #000;
-      cursor: pointer;
-      line-height: 1;
-      z-index: 1001;
-      background: none;
-      border: none;
-      transition: opacity 0.2s ease;
-    }
-
-    #lightbox-close:hover { opacity: 0.5; }
-
-    /* Nav flechas lightbox */
-    #lightbox-prev,
-    #lightbox-next {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 36px;
-      font-weight: 100;
-      color: #000;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 1001;
-      padding: 10px 20px;
-      transition: opacity 0.2s ease;
-      line-height: 1;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    #lightbox-prev { left: 10px; }
-    #lightbox-next { right: 10px; }
-    #lightbox-prev:hover,
-    #lightbox-next:hover { opacity: 0.5; }
-
-    @media (max-width: 767px) {
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-2col { grid-template-columns: 1fr; }
-      .gallery-3col { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 480px) {
-      .gallery-grid { grid-template-columns: 1fr; }
-    }
-
-    /* Greenpeace image left-justify override */
-    #greenpeace-gallery .gitem img {
-      left: 4px;
-      transform: translate(0, -50%);
-    }
-  </style>
 </head>
-<body class="no-header-page" data-page="work">
+<body data-page="work">
 
-  <!-- ── LIGHTBOX ── -->
-  <div id="lightbox">
-    <button id="lightbox-close" aria-label="Cerrar">&#x00D7;</button>
-    <button id="lightbox-prev" aria-label="Anterior">&#x2039;</button>
-    <div id="lightbox-media">
-      <img id="lightbox-img" src="" alt="" />
-      <p id="lightbox-caption"></p>
+  <!-- ===================== CUSTOM CURSOR ===================== -->
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+  <!-- ===================== LIGHTBOX DIALOG ===================== -->
+  <dialog class="lightbox-modal" id="lightbox-modal">
+    <button class="lightbox-close-btn" aria-label="Cerrar modal">&times;</button>
+    <button class="lightbox-nav-btn lightbox-nav-prev" aria-label="Anterior">&larr;</button>
+    <div class="lightbox-modal-content">
+      <div class="lightbox-media-wrapper">
+        <img id="lightbox-img" src="" alt="Vista previa del proyecto" />
+        <div class="lightbox-caption-panel">
+          <h3 class="lightbox-info-title" id="lightbox-title">Título del Proyecto</h3>
+          <p class="lightbox-info-desc" id="lightbox-desc">Descripción del proyecto...</p>
+          <div class="lightbox-action-container"></div>
+        </div>
+      </div>
     </div>
-    <button id="lightbox-next" aria-label="Siguiente">&#x203A;</button>
-  </div>
+    <button class="lightbox-nav-btn lightbox-nav-next" aria-label="Siguiente">&rarr;</button>
+  </dialog>
 
-  <!-- HEADER -->
-  <div class="birdseye-header dark-nav" id="site-header">
+  <!-- ===================== HEADER ===================== -->
+  <header class="birdseye-header scrolled" id="site-header">
     <div class="container nav-inner">
       <div class="logo">
         <a href="index.html">
           <img src="./assets/images/bf-fondo.png" alt="Bernardo Flores" />
         </a>
       </div>
-      <div class="nav desktop-nav">
+
+      <!-- Desktop Navigation -->
+      <nav class="nav desktop-nav">
         <ul class="wsite-menu-default">
           <li><a href="index.html" class="wsite-menu-item" data-i18n="nav.about">SOBRE MÍ</a></li>
           <li id="active"><a href="trabajo.html" class="wsite-menu-item" data-i18n="nav.work">TRABAJO</a></li>
@@ -342,14 +56,20 @@
             <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
           </li>
         </ul>
-      </div>
-      <label class="hamburger" for="nav-toggle" aria-label="Menu"><span></span></label>
-    </div>
-  </div>
+      </nav>
 
-  <!-- Mobile nav -->
+      <!-- Hamburger mobile button -->
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Backdrop & Navigation Drawer -->
+  <div class="nav-backdrop" id="nav-backdrop"></div>
   <div class="mobile-nav" id="mobile-nav">
-    <label class="hamburger" for="nav-toggle" aria-label="Cerrar menu"><span></span></label>
     <ul class="wsite-menu-default">
       <li><a href="index.html" class="wsite-menu-item" data-i18n="nav.about">SOBRE MÍ</a></li>
       <li id="m-active"><a href="trabajo.html" class="wsite-menu-item" data-i18n="nav.work">TRABAJO</a></li>
@@ -364,692 +84,994 @@
     </ul>
   </div>
 
-  <!-- MAIN -->
-  <div class="main-wrap">
-    <div id="wsite-content" class="wsite-elements wsite-not-footer">
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main class="main-wrap">
+    <div class="container">
+      <h1 class="wsite-content-title" id="work-title" data-i18n="work.heading">Trabajo</h1>
 
-      <!-- ═══════ FULLCARGA ═══════ -->
-      <div class="wsite-section wsite-body-section">
-        <div class="wsite-section-content compact">
-          <div class="container">
-            <h2 class="wsite-content-title">Fullcarga</h2>
-            <div class="gallery-2col">
-              <div class="gitem"
-                   data-full="./assets/images/fullcarga.png"
-                   data-caption="Fullcarga / Social Media Shorts|Dirección de Arte, diseño y animación."
-                   data-link="https://www.behance.net/gallery/250507343/Fullcarga-Social-Media-Shorts"
-                   data-link-text="Ver en Behance"
-                   style="padding-bottom:0; position:static; overflow:visible;">
-                <div class="img-wrap">
-                  <img src="./assets/images/fullcarga.png" alt="Fullcarga – Social Media Shorts" />
-                </div>
-                <div class="project-link-wrap">
-                  <a href="https://www.behance.net/gallery/250507343/Fullcarga-Social-Media-Shorts"
-                     target="_blank" rel="noopener" class="project-link-btn">
-                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                     <span data-i18n="btn.behance">Ver en Behance</span>
-                  </a>
-                </div>
-              </div>
+      <!-- Portfolio Filters -->
+      <div class="gallery-filters">
+        <a class="filter-btn active" href="#work-title" data-i18n="work.filter.all">Todos</a>
+        <a class="filter-btn" href="#fintech" data-i18n="work.filter.fintech">Fintech / UX</a>
+        <a class="filter-btn" href="#samsung" data-i18n="work.filter.samsung">Samsung</a>
+        <a class="filter-btn" href="#branding" data-i18n="work.filter.branding">Branding &amp; Publicidad</a>
+        <a class="filter-btn" href="#decoracion" data-i18n="work.filter.decor">Eventos &amp; Decoración</a>
+      </div>
 
-              <div class="gitem"
-                   data-full="./assets/images/fullcarga-case.png"
-                   data-caption="Fullcarga / UX/UI Case Study|App de Venta de Recargas, Pago de Servicios y Pines. Rediseño y unificación de la experiencia para Web y App móvil."
-                   data-link="https://fullcarga.vercel.app/"
-                   data-link-text="Ver Case Study"
-                   style="padding-bottom:0; position:static; overflow:visible;">
-                <div class="img-wrap">
-                  <img src="./assets/images/fullcarga-case.png" alt="Fullcarga – UX/UI Case Study" />
-                </div>
-                <div class="project-link-wrap">
-                  <a href="https://fullcarga.vercel.app/"
-                     target="_blank" rel="noopener" class="project-link-btn">
-                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                     <span data-i18n="btn.casestudy">Ver Case Study</span>
-                  </a>
-                </div>
-              </div>
+      <!-- Sections -->
+      <section id="fintech" class="work-section">
+        <h2 class="work-section-title" data-i18n="work.filter.fintech">Fintech / UX</h2>
+        <div class="bento-grid">
+
+        <!-- ── FINTECH / UX ── -->
+        <div class="bento-item bento-wide" data-full="./assets/images/fullcarga.png" data-caption-key="cap.fullcarga" data-category="fintech" data-link="https://www.behance.net/gallery/250507343/Fullcarga-Social-Media-Shorts" data-link-text="Ver en Behance">
+          <div class="bento-media">
+            <img src="./assets/images/fullcarga.png" alt="Fullcarga Shorts" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Fintech</span><span class="bento-tag">Motion</span></div>
+            <h3 class="bento-title">Fullcarga / Social Media Shorts</h3>
+            <p class="bento-description" data-i18n="cap.fullcarga">Dirección de Arte, diseño y animación.</p>
+            <div class="bento-actions">
+              <a href="https://www.behance.net/gallery/250507343/Fullcarga-Social-Media-Shorts" target="_blank" class="bento-btn btn-primary" data-i18n="btn.behance">Ver en Behance</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/fullcarga-case.png" data-caption-key="cap.fullcarga.case" data-category="fintech" data-link="https://fullcarga.vercel.app/" data-link-text="Ver Case Study">
+          <div class="bento-media">
+            <img src="./assets/images/fullcarga-case.png" alt="Fullcarga UX/UI Case Study" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Fintech</span><span class="bento-tag">UX/UI Case Study</span></div>
+            <h3 class="bento-title">Fullcarga / UX/UI Case Study</h3>
+            <p class="bento-description" data-i18n="cap.fullcarga.case">App de Venta de Recargas, Pago de Servicios y Pines. Diseño de 0 a fin de App y sitio web.</p>
+            <div class="bento-actions">
+              <a href="https://fullcarga.vercel.app/" target="_blank" class="bento-btn btn-primary" data-i18n="btn.casestudy">Ver Case Study</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/spots-ya-payments_orig.png" data-caption-key="cap.ya.spots" data-category="fintech" data-link="https://www.behance.net/gallery/250500369/Spots-Ya-Payments" data-link-text="Ver en Behance">
+          <div class="bento-media">
+            <img src="./assets/images/spots-ya-payments_orig.png" alt="YA Payments Spots" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Fintech</span><span class="bento-tag">Branding</span></div>
+            <h3 class="bento-title">YA Payments / Spots</h3>
+            <p class="bento-description" data-i18n="cap.ya.spots">Concepto, dirección de Arte, diseño y animación.</p>
+            <div class="bento-actions">
+              <a href="https://www.behance.net/gallery/250500369/Spots-Ya-Payments" target="_blank" class="bento-btn btn-primary" data-i18n="btn.behance">Ver en Behance</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/ya-case.png" data-caption-key="cap.ya.case" data-category="fintech" data-link="https://ux-ui-portfolio-opal.vercel.app/" data-link-text="Ver Case Study">
+          <div class="bento-media">
+            <img src="./assets/images/ya-case.png" alt="YA Payments UX/UI Case Study" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Fintech</span><span class="bento-tag">UX/UI Case Study</span></div>
+            <h3 class="bento-title">YA Payments / Case Study</h3>
+            <p class="bento-description" data-i18n="cap.ya.case">UX/UI Design, investigación y prototipado.</p>
+            <div class="bento-actions">
+              <a href="https://ux-ui-portfolio-opal.vercel.app/" target="_blank" class="bento-btn btn-primary" data-i18n="btn.casestudy">Ver Case Study</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/pagatodo-case.jpg" data-caption-key="cap.pagatodo.case" data-category="fintech" data-link="https://pagatodo-portfolio.vercel.app/" data-link-text="Ver Case Study">
+          <div class="bento-media">
+            <img src="./assets/images/pagatodo-case.jpg" alt="PagaTodo UX/UI Case Study" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Fintech</span><span class="bento-tag">UX/UI Case Study</span></div>
+            <h3 class="bento-title">Banco PagaTodo / UX/UI Case Study</h3>
+            <p class="bento-description" data-i18n="cap.pagatodo.case">Plataforma bancaria multiperfilada para México. Rediseño y unificación de la experiencia para Web y App móvil.</p>
+            <div class="bento-actions">
+              <a href="https://pagatodo-portfolio.vercel.app/" target="_blank" class="bento-btn btn-primary" data-i18n="btn.casestudy">Ver Case Study</a>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <hr class="styled-hr" />
+    <!-- ── SAMSUNG ── -->
+    <section id="samsung" class="work-section">
+      <h2 class="work-section-title" data-i18n="work.filter.samsung">Samsung</h2>
+      <div class="bento-grid">
+        <div class="bento-item bento-wide" data-full="./assets/images/iconx-tangle-mercury_1_orig.jpg" data-caption-key="cap.iconx.mercury" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/iconx-tangle-mercury_1.jpg" alt="IconX Mercury" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">IconX – Mercury</h3>
+            <p class="bento-description" data-i18n="cap.iconx.mercury">Concepto, dirección de Arte, diseño y layout.</p>
+          </div>
+        </div>
 
-      <!-- ═══════ YA PAYMENTS ═══════ -->
-      <div class="wsite-section wsite-body-section">
-        <div class="wsite-section-content compact">
-          <div class="container">
-            <h2 class="wsite-content-title">YA Payments (Grupo PagaTodo)</h2>
-            <div class="gallery-3col">
-              <div class="gitem"
-                   data-full="./assets/images/spots-ya-payments_orig.png"
-                   data-caption="YA Payments / Spots|Concepto, dirección de Arte, diseño y animación."
-                   data-link="https://www.behance.net/gallery/250500369/Spots-Ya-Payments"
-                   data-link-text="Ver en Behance"
-                   style="padding-bottom:0; position:static; overflow:visible;">
-                <div class="img-wrap">
-                  <img src="./assets/images/spots-ya-payments_orig.png" alt="Spots YA Payments" />
-                </div>
-                <div class="project-link-wrap">
-                  <a href="https://www.behance.net/gallery/250500369/Spots-Ya-Payments"
-                     target="_blank" rel="noopener" class="project-link-btn">
-                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                     <span data-i18n="btn.behance">Ver en Behance</span>
-                  </a>
-                </div>
-              </div>
+        <div class="bento-item" data-full="./assets/images/iconx-tangle-kimister_1_orig.jpg" data-caption-key="cap.iconx.kimister" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/iconx-tangle-kimister_1.jpg" alt="IconX Kimister" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">IconX – Kimister</h3>
+            <p class="bento-description" data-i18n="cap.iconx.kimister">Concepto, dirección de Arte, diseño y layout.</p>
+          </div>
+        </div>
 
-              <div class="gitem"
-                   data-full="./assets/images/ya-case.png"
-                   data-caption="YA Payments / Case Study|UX/UI Design, investigación y prototipado."
-                   data-link="https://ux-ui-portfolio-opal.vercel.app/"
-                   data-link-text="Ver Case Study"
-                   style="padding-bottom:0; position:static; overflow:visible;">
-                <div class="img-wrap">
-                  <img src="./assets/images/ya-case.png" alt="YA Payments – Case Study" />
-                </div>
-                <div class="project-link-wrap">
-                  <a href="https://ux-ui-portfolio-opal.vercel.app/"
-                     target="_blank" rel="noopener" class="project-link-btn">
-                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                     <span data-i18n="btn.casestudy">Ver Case Study</span>
-                  </a>
-                </div>
-              </div>
+        <div class="bento-item" data-full="./assets/images/iconx-tangle-bowie_1_orig.jpg" data-caption-key="cap.iconx.bowie" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/iconx-tangle-bowie_1.jpg" alt="IconX Bowie" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">IconX – Bowie</h3>
+            <p class="bento-description" data-i18n="cap.iconx.bowie">Concepto, dirección de Arte, diseño y layout.</p>
+          </div>
+        </div>
 
-              <div class="gitem"
-                   data-full="./assets/images/pagatodo-case.jpg"
-                   data-caption="Banco PagaTodo / UX/UI Case Study|Plataforma bancaria multiperfilada para México. Rediseño y unificación de la experiencia para Web y App móvil."
-                   data-link="https://pagatodo-portfolio.vercel.app/"
-                   data-link-text="Ver Case Study"
-                   style="padding-bottom:0; position:static; overflow:visible;">
-                <div class="img-wrap">
-                  <img src="./assets/images/pagatodo-case.jpg" alt="Banco PagaTodo – Case Study" />
-                </div>
-                <div class="project-link-wrap">
-                  <a href="https://pagatodo-portfolio.vercel.app/"
-                     target="_blank" rel="noopener" class="project-link-btn">
-                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                     <span data-i18n="btn.casestudy">Ver Case Study</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+        <div class="bento-item bento-wide" data-full="./assets/images/switch-a-s8-htl_1_orig.jpg" data-caption-key="cap.switch.a" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/switch-a-s8-htl_1.jpg" alt="Smart Switch A" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Smart Switch A</h3>
+            <p class="bento-description" data-i18n="cap.switch.a">Concepto, dirección de Arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/switch-b-s8-htl_1_orig.jpg" data-caption-key="cap.switch.b" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/switch-b-s8-htl_1.jpg" alt="Smart Switch B" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Smart Switch B</h3>
+            <p class="bento-description" data-i18n="cap.switch.b">Concepto, dirección de Arte.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/3854436_1_orig.jpg" data-caption-key="cap.focus" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/3854436_1.jpg" alt="Samsung Focus" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Focus</h3>
+            <p class="bento-description" data-i18n="cap.focus">Concepto, dirección de Arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/9162129_1_orig.jpg" data-caption-key="cap.galaxy" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/9162129_1.jpg" alt="Samsung Galaxy" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Galaxy</h3>
+            <p class="bento-description" data-i18n="cap.galaxy">Concepto, dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/9554709_1_orig.jpg" data-caption-key="cap.glamrebel" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/9554709_1.jpg" alt="Samsung Glamrebel" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Glamrebel</h3>
+            <p class="bento-description" data-i18n="cap.glamrebel">Concepto, dirección de arte, retoque, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/3527946_1_orig.jpg" data-caption-key="cap.strongsweet" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/3527946_1.jpg" alt="Samsung Strongsweet" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Strongsweet</h3>
+            <p class="bento-description" data-i18n="cap.strongsweet">Concepto, dirección de arte, retoque, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/vr-alpinista_1_orig.jpg" data-caption-key="cap.vr.alpinista" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/vr-alpinista_1.jpg" alt="Gear VR Alpinista" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span><span class="bento-tag">VR</span></div>
+            <h3 class="bento-title">Gear VR – Alpinista</h3>
+            <p class="bento-description" data-i18n="cap.vr.alpinista">Concepto, dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/vr-ciclista_1_orig.jpg" data-caption-key="cap.vr.ciclista" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/vr-ciclista_1.jpg" alt="Gear VR Ciclista" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span><span class="bento-tag">VR</span></div>
+            <h3 class="bento-title">Gear VR – Ciclista</h3>
+            <p class="bento-description" data-i18n="cap.vr.ciclista">Concepto, dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/vr-gamer_1_orig.jpg" data-caption-key="cap.vr.gamer" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/vr-gamer_1.jpg" alt="Gear VR Gamer" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span><span class="bento-tag">VR</span></div>
+            <h3 class="bento-title">Gear VR – Gamer</h3>
+            <p class="bento-description" data-i18n="cap.vr.gamer">Concepto, dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/final-tia-ni-o-3_1_orig.jpg" data-caption-key="cap.galaxy.a8.tia" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/final-tia-ni-o-3_1.jpg" alt="Galaxy A8 – Divertida" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Galaxy A8 – Divertida</h3>
+            <p class="bento-description" data-i18n="cap.galaxy.a8.tia">Dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/final-rockero_1_orig.jpg" data-caption-key="cap.galaxy.a8.rockero" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/final-rockero_1.jpg" alt="Galaxy A8 Rockero" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Galaxy A8 – Rockero</h3>
+            <p class="bento-description" data-i18n="cap.galaxy.a8.rockero">Dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/qled-active-voice-5_1_orig.jpg" data-caption-key="cap.qled.5" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/qled-active-voice-5_1.jpg" alt="QLED Active Voice Woof" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">QLED Active Voice Woof</h3>
+            <p class="bento-description" data-i18n="cap.qled.5">Dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/qled-active-voice-1_1_orig.jpg" data-caption-key="cap.qled.1" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/qled-active-voice-1_1.jpg" alt="QLED Active Voice Crash" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">QLED Active Voice Crash</h3>
+            <p class="bento-description" data-i18n="cap.qled.1">Dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/qled-active-voice-6_1_orig.jpg" data-caption-key="cap.qled.6" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/qled-active-voice-6_1.jpg" alt="QLED Active Voice Crunch" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">QLED Active Voice Crunch</h3>
+            <p class="bento-description" data-i18n="cap.qled.6">Dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/unbox-s8pink-taxco_1_orig.jpg" data-caption-key="cap.s8pink.taxco" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/unbox-s8pink-taxco_1.jpg" alt="S8 Pink Taxco" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">S8 PINK – Taxco</h3>
+            <p class="bento-description" data-i18n="cap.s8pink.taxco">Dirección de arte, retoque fotográfico, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/unbox-s8pink-loscabos_1_orig.jpg" data-caption-key="cap.s8pink.cabos" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/unbox-s8pink-loscabos_1.jpg" alt="S8 Pink Los Cabos" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">S8 PINK – Los Cabos</h3>
+            <p class="bento-description" data-i18n="cap.s8pink.cabos">Dirección de arte, retoque fotográfico, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/gs3-sos-city_1_orig.jpg" data-caption-key="cap.sos.city" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/gs3-sos-city_1.jpg" alt="GS3 SOS City" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">SOS City</h3>
+            <p class="bento-description" data-i18n="cap.sos.city">Dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/gs3-sos-forest_1_orig.jpg" data-caption-key="cap.sos.forest" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/gs3-sos-forest_1.jpg" alt="GS3 SOS Forest" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">SOS Forest</h3>
+            <p class="bento-description" data-i18n="cap.sos.forest">Dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/colibri_1_orig.jpg" data-caption-key="cap.colibri" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/colibri_1.jpg" alt="Samsung Colibrí" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Colibrí</h3>
+            <p class="bento-description" data-i18n="cap.colibri">Dirección de arte, retoque fotográfico, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/lagartija_1_orig.jpg" data-caption-key="cap.lagartija" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/lagartija_1.jpg" alt="Samsung Lagartija" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Lagartija</h3>
+            <p class="bento-description" data-i18n="cap.lagartija">Dirección de arte, retoque fotográfico, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/2628607_1_orig.jpg" data-caption-key="cap.vuelve" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/2628607_1.jpg" alt="Vuelve a Mirar" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Vuelve a Mirar</h3>
+            <p class="bento-description" data-i18n="cap.vuelve">Concepto, dirección de arte, copy, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/budslive-keeponly_1_orig.jpg" data-caption-key="cap.buds" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/budslive-keeponly_1.jpg" alt="Buds Live" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Galaxy Buds Live</h3>
+            <p class="bento-description" data-i18n="cap.buds">Dirección de Arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/3196855_1_orig.jpg" data-caption-key="cap.kids" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/3196855_1.jpg" alt="Kids Mode" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Kids Mode</h3>
+            <p class="bento-description" data-i18n="cap.kids">Dirección de Arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/electro-master-cancer-60x90_1_orig.jpg" data-caption-key="cap.cancer.poster" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/electro-master-cancer-60x90_1.jpg" alt="Cáncer de mama – Tócalas sin miedo" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung ESR</span></div>
+            <h3 class="bento-title">Cáncer de mama – Tócalas sin miedo</h3>
+            <p class="bento-description" data-i18n="cap.cancer.poster">Concepto, dirección de arte, layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/fb-851x315-5_1_orig.jpg" data-caption-key="cap.cancer.fb5" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/fb-851x315-5_1.jpg" alt="Cáncer de mama – No me ha dolido nada" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung ESR</span></div>
+            <h3 class="bento-title">Cáncer de mama – No me ha dolido nada</h3>
+            <p class="bento-description" data-i18n="cap.cancer.fb5">Concepto, dirección de arte, layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/fb-851x315-1_1_orig.jpg" data-caption-key="cap.cancer.fb1" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/fb-851x315-1_1.jpg" alt="Cáncer de mama – A mí no me pasa" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung ESR</span></div>
+            <h3 class="bento-title">Cáncer de mama – A mí no me pasa</h3>
+            <p class="bento-description" data-i18n="cap.cancer.fb1">Concepto, dirección de arte, layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/fb-851x315-3_1_orig.jpg" data-caption-key="cap.cancer.fb3" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/fb-851x315-3_1.jpg" alt="Cáncer de mama – Solo es una bolita" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung ESR</span></div>
+            <h3 class="bento-title">Cáncer de mama – Solo es una bolita</h3>
+            <p class="bento-description" data-i18n="cap.cancer.fb3">Concepto, dirección de arte, layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/interaccion-ilustracion_1_orig.jpg" data-caption-key="cap.interaccion" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/interaccion-ilustracion_1.jpg" alt="Cáncer de mama – Desliza 2 dedos" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung ESR</span></div>
+            <h3 class="bento-title">Cáncer de mama – Desliza 2 dedos</h3>
+            <p class="bento-description" data-i18n="cap.interaccion">Material interactivo que te invita a utilizar 2 dedos y explorar.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/6076604_1_orig.jpg" data-caption-key="cap.svoice.1" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/6076604_1.jpg" alt="S Voice – Accidente" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">S Voice – Accidente</h3>
+            <p class="bento-description" data-i18n="cap.svoice.1">Concepto, dirección de arte, retoque, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/934927_1_orig.jpg" data-caption-key="cap.svoice.2" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/934927_1.jpg" alt="S Voice – Cicatriz" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">S Voice – Cicatriz</h3>
+            <p class="bento-description" data-i18n="cap.svoice.2">Concepto, dirección de arte, retoque, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/2008869_1_orig.jpg" data-caption-key="cap.comparte.1" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/2008869_1.jpg" alt="Comparte al Instante – Caballo" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Comparte al Instante – Caballo</h3>
+            <p class="bento-description" data-i18n="cap.comparte.1">Concepto, dirección de arte, copy, retoque, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/6045551_1_orig.jpg" data-caption-key="cap.comparte.2" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/6045551_1.jpg" alt="Comparte al Instante – Skater" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Comparte al Instante – Skater</h3>
+            <p class="bento-description" data-i18n="cap.comparte.2">Concepto, dirección de arte, copy, retoque, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/8518914_1_orig.jpg" data-caption-key="cap.gmusic.1" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/8518914_1.jpg" alt="Google Play Music – Washawashear" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Google Play Music – Washawashear</h3>
+            <p class="bento-description" data-i18n="cap.gmusic.1">Concepto, dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/7545071_1_orig.jpg" data-caption-key="cap.gmusic.2" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/7545071_1.jpg" alt="Google Play Music – Gustos Culposos" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Google Play Music – Gustos Culposos</h3>
+            <p class="bento-description" data-i18n="cap.gmusic.2">Concepto, dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/2240994_orig.jpg" data-caption-key="cap.corbatas" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/2240994.jpg" alt="Samsung Corbatas" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Corbatas</h3>
+            <p class="bento-description" data-i18n="cap.corbatas">Concepto, dirección de arte y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/7943877_orig.jpg" data-caption-key="cap.regalos" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/7943877.jpg" alt="Samsung Mejores Regalos" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Mejores Regalos</h3>
+            <p class="bento-description" data-i18n="cap.regalos">Concepto, dirección de arte, retoque, diseño y layout.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/9253084_orig.jpg" data-caption-key="cap.note10" data-category="samsung">
+          <div class="bento-media">
+            <img src="./assets/images/9253084.jpg" alt="Note 10.1" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Samsung</span></div>
+            <h3 class="bento-title">Note 10.1</h3>
+            <p class="bento-description" data-i18n="cap.note10">Concepto, dirección de arte y layout.</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <hr class="styled-hr" />
+    <!-- ── BRANDING & PUBLICIDAD ── -->
+    <section id="branding" class="work-section">
+      <h2 class="work-section-title" data-i18n="work.filter.branding">Branding &amp; Publicidad</h2>
+      <div class="bento-grid">
+        <div class="bento-item" data-full="./assets/images/under-g-h_1_orig.jpg" data-caption-key="cap.under.buen1" data-category="advertising">
+          <div class="bento-media">
+            <img src="./assets/images/under-g-h_1.jpg" alt="Under Armour – Rompe tu récord" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Under Armour</span></div>
+            <h3 class="bento-title">Under Armour – Rompe tu récord</h3>
+            <p class="bento-description" data-i18n="cap.under.buen1">Concepto, dirección de Arte, diseño y layout.</p>
+          </div>
+        </div>
 
-      <!-- ═══════ SAMSUNG ═══════ -->
-      <div class="wsite-section wsite-body-section">
-        <div class="wsite-section-content compact">
-          <div class="container">
-            <h2 class="wsite-content-title" style="text-align:left;">Samsung</h2>
+        <div class="bento-item bento-wide" data-full="./assets/images/under-g-h-xmas-2_1_orig.jpg" data-caption-key="cap.under.buen2" data-category="advertising">
+          <div class="bento-media">
+            <img src="./assets/images/under-g-h-xmas-2_1.jpg" alt="Under Armour – Convierte tus sueños en logros" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Under Armour</span></div>
+            <h3 class="bento-title">Under Armour – Convierte tus sueños en logros</h3>
+            <p class="bento-description" data-i18n="cap.under.buen2">Concepto, dirección de Arte, diseño y layout.</p>
+          </div>
+        </div>
 
-            <!-- Samsung gallery — 3 columnas, lightbox con _orig.jpg -->
-            <div class="gallery-grid" id="samsung-gallery">
-              <div class="gitem" data-full="./assets/images/iconx-tangle-mercury_1_orig.jpg"
-                   data-caption="Samsung / IconX Tangle – Mercury|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/iconx-tangle-mercury_1.jpg" alt="IconX Tangle Mercury" />
-              </div>
-              <div class="gitem" data-full="./assets/images/iconx-tangle-kimister_1_orig.jpg"
-                   data-caption="Samsung / IconX Tangle – Kimister|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/iconx-tangle-kimister_1.jpg" alt="IconX Tangle Kimister" />
-              </div>
-              <div class="gitem" data-full="./assets/images/iconx-tangle-bowie_1_orig.jpg"
-                   data-caption="Samsung / IconX Tangle – Bowie|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/iconx-tangle-bowie_1.jpg" alt="IconX Tangle Bowie" />
-              </div>
+        <div class="bento-item" data-full="./assets/images/under-g-h-xmas_1_orig.jpg" data-caption-key="cap.under.buen3" data-category="advertising">
+          <div class="bento-media">
+            <img src="./assets/images/under-g-h-xmas_1.jpg" alt="Under Armour – Termina el año con una nueva meta" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Under Armour</span></div>
+            <h3 class="bento-title">Under Armour – Termina el año con una nueva meta</h3>
+            <p class="bento-description" data-i18n="cap.under.buen3">Concepto, dirección de Arte, diseño y layout.</p>
+          </div>
+        </div>
 
-              <div class="gitem" data-full="./assets/images/switch-a-s8-htl_1_orig.jpg"
-                   data-caption="Samsung / Smart Switch A|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/switch-a-s8-htl_1.jpg" alt="Smart Switch A – S8" />
-              </div>
-              <div class="gitem" data-full="./assets/images/switch-b-s8-htl_1_orig.jpg"
-                   data-caption="Samsung / Smart Switch B|Concepto, dirección de Arte.">
-                <img src="./assets/images/switch-b-s8-htl_1.jpg" alt="Smart Switch B – S8" />
-              </div>
-              <div class="gitem" data-full="./assets/images/3854436_1_orig.jpg"
-                   data-caption="Samsung / Focus|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/3854436_1.jpg" alt="Samsung Focus" />
-              </div>
+        <div class="bento-item" data-full="./assets/images/under-g-m_2_orig.jpg" data-caption-key="cap.under.g" data-category="advertising">
+          <div class="bento-media">
+            <img src="./assets/images/under-g-m_2.jpg" alt="Under Armour – Corre otro maratón" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Under Armour</span></div>
+            <h3 class="bento-title">Under Armour – Corre otro maratón</h3>
+            <p class="bento-description" data-i18n="cap.under.g">Concepto, dirección de Arte, diseño y layout.</p>
+          </div>
+        </div>
 
-              <div class="gitem" data-full="./assets/images/9162129_1_orig.jpg"
-                   data-caption="Samsung / Galaxy|Concepto, dirección de arte, diseño y layout.">
-                <img src="./assets/images/9162129_1.jpg" alt="Samsung Galaxy" />
-              </div>
-              <div class="gitem" data-full="./assets/images/9554709_1_orig.jpg"
-                   data-caption="Samsung / Glamrebel|Concepto, dirección de arte, retoque, diseño y layout.">
-                <img src="./assets/images/9554709_1.jpg" alt="Samsung Glamrebel" />
-              </div>
-              <div class="gitem" data-full="./assets/images/3527946_1_orig.jpg"
-                   data-caption="Samsung / Strongsweet|Concepto, dirección de arte, retoque, diseño y layout.">
-                <img src="./assets/images/3527946_1.jpg" alt="Samsung Strongsweet" />
-              </div>
+        <div class="bento-item bento-wide" data-full="./assets/images/under-oferta-box_1_orig.jpg" data-caption-key="cap.under.oferta" data-category="advertising">
+          <div class="bento-media">
+            <img src="./assets/images/under-oferta-box_1.jpg" alt="Under Armour – Ve por todo" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Under Armour</span></div>
+            <h3 class="bento-title">Under Armour – Ve por todo</h3>
+            <p class="bento-description" data-i18n="cap.under.oferta">Concepto, dirección de Arte, diseño y layout.</p>
+          </div>
+        </div>
 
-              <div class="gitem" data-full="./assets/images/vr-alpinista_1_orig.jpg"
-                   data-caption="Samsung / Gear VR – Alpinista|Concepto, dirección de arte, diseño y layout.">
-                <img src="./assets/images/vr-alpinista_1.jpg" alt="Gear VR – Alpinista" />
-              </div>
-              <div class="gitem" data-full="./assets/images/vr-ciclista_1_orig.jpg"
-                   data-caption="Samsung / Gear VR – Ciclista|Concepto, dirección de arte, diseño y layout.">
-                <img src="./assets/images/vr-ciclista_1.jpg" alt="Gear VR – Ciclista" />
-              </div>
-              <div class="gitem" data-full="./assets/images/vr-gamer_1_orig.jpg"
-                   data-caption="Samsung / Gear VR – Gamer|Concepto, dirección de arte, diseño y layout.">
-                <img src="./assets/images/vr-gamer_1.jpg" alt="Gear VR – Gamer" />
-              </div>
+        <div class="bento-item" data-full="./assets/images/5886739_1_orig.jpg" data-caption-key="cap.greenpeace" data-category="advertising">
+          <div class="bento-media">
+            <img src="./assets/images/5886739_1.jpg" alt="Greenpeace Eagle Award" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Greenpeace</span><span class="bento-tag">Premio Plata</span></div>
+            <h3 class="bento-title">Greenpeace / Árbol de la Vida / Eagle Award</h3>
+            <p class="bento-description" data-i18n="cap.greenpeace">Dirección de arte, dirección de fotografía.</p>
+          </div>
+        </div>
 
-              <div class="gitem" data-full="./assets/images/final-tia-ni-o-3_1_orig.jpg"
-                   data-caption="Samsung / Galaxy A8|Dirección de arte, diseño y layout.">
-                <img src="./assets/images/final-tia-ni-o-3_1.jpg" alt="Samsung Galaxy A8" />
-              </div>
-              <div class="gitem" data-full="./assets/images/final-rockero_1_orig.jpg"
-                   data-caption="Samsung / Galaxy A8 – Rockero|Dirección de arte, diseño y layout.">
-                <img src="./assets/images/final-rockero_1.jpg" alt="Galaxy A8 – Rockero" />
-              </div>
-              <div class="gitem" data-full="./assets/images/qled-active-voice-5_1_orig.jpg"
-                   data-caption="Samsung / QLED Active Voice|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/qled-active-voice-5_1.jpg" alt="QLED Active Voice" />
-              </div>
+        <div class="bento-item bento-wide" data-full="./assets/images/garra-negra-final-003_1_orig.jpeg" data-caption-key="cap.garra.003" data-category="advertising">
+          <div class="bento-media">
+            <img src="./assets/images/garra-negra-final-003_1.jpeg" alt="Garra Negra" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Garra Negra</span></div>
+            <h3 class="bento-title">Logo Garra Negra</h3>
+            <p class="bento-description" data-i18n="cap.garra.003">Dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
 
-              <div class="gitem" data-full="./assets/images/qled-active-voice-1_1_orig.jpg"
-                   data-caption="Samsung / QLED Active Voice|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/qled-active-voice-1_1.jpg" alt="QLED Active Voice 1" />
-              </div>
-              <div class="gitem" data-full="./assets/images/qled-active-voice-6_1_orig.jpg"
-                   data-caption="Samsung / QLED Active Voice|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/qled-active-voice-6_1.jpg" alt="QLED Active Voice 6" />
-              </div>
-              <div class="gitem" data-full="./assets/images/unbox-s8pink-taxco_1_orig.jpg"
-                   data-caption="Samsung / S8 Pink – Taxco|Dirección de arte, retoque fotográfico, diseño y layout.">
-                <img src="./assets/images/unbox-s8pink-taxco_1.jpg" alt="S8 Pink – Taxco" />
-              </div>
+        <div class="bento-item" data-full="./assets/images/garra-negra-final-006_1_orig.jpeg" data-caption-key="cap.garra.006" data-category="advertising">
+          <div class="bento-media">
+            <img src="./assets/images/garra-negra-final-006_1.jpeg" alt="Label Garra Negra" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Garra Negra</span></div>
+            <h3 class="bento-title">Label Garra Negra</h3>
+            <p class="bento-description" data-i18n="cap.garra.006">Dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
 
-              <div class="gitem" data-full="./assets/images/unbox-s8pink-loscabos_1_orig.jpg"
-                   data-caption="Samsung / S8 Pink – Los Cabos|Dirección de arte, retoque fotográfico, diseño y layout.">
-                <img src="./assets/images/unbox-s8pink-loscabos_1.jpg" alt="S8 Pink – Los Cabos" />
-              </div>
-              <div class="gitem" data-full="./assets/images/gs3-sos-city_1_orig.jpg"
-                   data-caption="Samsung / GS3 SOS – Ciudad|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/gs3-sos-city_1.jpg" alt="GS3 SOS City" />
-              </div>
-              <div class="gitem" data-full="./assets/images/gs3-sos-forest_1_orig.jpg"
-                   data-caption="Samsung / GS3 SOS – Bosque|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/gs3-sos-forest_1.jpg" alt="GS3 SOS Forest" />
-              </div>
+        <div class="bento-item bento-wide" data-full="./assets/images/garra-negra-final-botella_1_orig.jpg" data-caption-key="cap.garra.botella" data-category="advertising">
+          <div class="bento-media">
+            <img src="./assets/images/garra-negra-final-botella_1.jpg" alt="Garra Negra Botella" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Garra Negra</span></div>
+            <h3 class="bento-title">Garra Negra / Botella</h3>
+            <p class="bento-description" data-i18n="cap.garra.botella">Dirección de arte, diseño y layout.</p>
+          </div>
+        </div>
 
-              <div class="gitem" data-full="./assets/images/colibri_1_orig.jpg"
-                   data-caption="Samsung / Colibrí|Dirección de arte, retoque fotográfico, diseño y layout.">
-                <img src="./assets/images/colibri_1.jpg" alt="Colibrí" />
-              </div>
-              <div class="gitem" data-full="./assets/images/lagartija_1_orig.jpg"
-                   data-caption="Samsung / Lagartija|Dirección de arte, retoque fotográfico, diseño y layout.">
-                <img src="./assets/images/lagartija_1.jpg" alt="Lagartija" />
-              </div>
-              <div class="gitem" data-full="./assets/images/2628607_1_orig.jpg"
-                   data-caption="Samsung / Vuelve a Mirar|Concepto, dirección de arte, copy, diseño y layout.">
-                <img src="./assets/images/2628607_1.jpg" alt="Vuelve a Mirar" />
-              </div>
-
-              <div class="gitem" data-full="./assets/images/budslive-keeponly_1_orig.jpg"
-                   data-caption="Samsung / Galaxy Buds Live|Dirección de Arte, diseño y layout.">
-                <img src="./assets/images/budslive-keeponly_1.jpg" alt="Buds Live" />
-              </div>
-              <div class="gitem" data-full="./assets/images/3196855_1_orig.jpg"
-                   data-caption="Samsung / Kids Mode|Dirección de Arte, diseño y layout.">
-                <img src="./assets/images/3196855_1.jpg" alt="Kids Mode" />
-              </div>
-              <div class="gitem" data-full="./assets/images/electro-master-cancer-60x90_1_orig.jpg"
-                   data-caption="Samsung ESR / Cáncer de mama|Concepto, dirección de arte, layout.">
-                <img src="./assets/images/electro-master-cancer-60x90_1.jpg" alt="ESR – Cáncer de mama" />
-              </div>
-
-              <div class="gitem" data-full="./assets/images/fb-851x315-5_1_orig.jpg"
-                   data-caption="Samsung ESR / Cáncer de mama – Facebook|Concepto, dirección de arte, layout.">
-                <img src="./assets/images/fb-851x315-5_1.jpg" alt="Samsung ESR Facebook" />
-              </div>
-              <div class="gitem" data-full="./assets/images/fb-851x315-1_1_orig.jpg"
-                   data-caption="Samsung ESR / Cáncer de mama – Facebook|Concepto, dirección de arte, layout.">
-                <img src="./assets/images/fb-851x315-1_1.jpg" alt="Samsung ESR Facebook 1" />
-              </div>
-              <div class="gitem" data-full="./assets/images/fb-851x315-3_1_orig.jpg"
-                   data-caption="Samsung ESR / Cáncer de mama – Facebook|Concepto, dirección de arte, layout.">
-                <img src="./assets/images/fb-851x315-3_1.jpg" alt="Samsung ESR Facebook 3" />
-              </div>
-
-              <div class="gitem" data-full="./assets/images/interaccion-ilustracion_1_orig.jpg"
-                   data-caption="Samsung ESR / Cáncer de mama – Interacción|Material interactivo que invita a utilizar 2 dedos y explorar.">
-                <img src="./assets/images/interaccion-ilustracion_1.jpg" alt="Interacción" />
-              </div>
-              <div class="gitem" data-full="./assets/images/6076604_1_orig.jpg"
-                   data-caption="Samsung / S Voice|Concepto, dirección de arte, retoque, diseño y layout.">
-                <img src="./assets/images/6076604_1.jpg" alt="S Voice" />
-              </div>
-              <div class="gitem" data-full="./assets/images/934927_1_orig.jpg"
-                   data-caption="Samsung / S Voice|Concepto, dirección de arte, retoque, diseño y layout.">
-                <img src="./assets/images/934927_1.jpg" alt="S Voice 2" />
-              </div>
-
-              <div class="gitem" data-full="./assets/images/2008869_1_orig.jpg"
-                   data-caption="Samsung / Comparte al Instante|Concepto, dirección de arte, copy, retoque, diseño y layout.">
-                <img src="./assets/images/2008869_1.jpg" alt="Comparte al Instante" />
-              </div>
-              <div class="gitem" data-full="./assets/images/6045551_1_orig.jpg"
-                   data-caption="Samsung / Comparte al Instante 2|Concepto, dirección de arte, copy, retoque, diseño y layout.">
-                <img src="./assets/images/6045551_1.jpg" alt="Comparte al Instante 2" />
-              </div>
-              <div class="gitem" data-full="./assets/images/8518914_1_orig.jpg"
-                   data-caption="Samsung / Google Music|Concepto, dirección de arte, diseño y layout.">
-                <img src="./assets/images/8518914_1.jpg" alt="Google Music" />
-              </div>
-
-              <div class="gitem" data-full="./assets/images/7545071_1_orig.jpg"
-                   data-caption="Samsung / Google Music 2|Concepto, dirección de arte, diseño y layout.">
-                <img src="./assets/images/7545071_1.jpg" alt="Google Music 2" />
-              </div>
-              <div class="gitem" data-full="./assets/images/2240994_orig.jpg"
-                   data-caption="Samsung / Corbatas|Concepto, dirección de arte y layout.">
-                <img src="./assets/images/2240994.jpg" alt="Samsung Corbatas" />
-              </div>
-              <div class="gitem" data-full="./assets/images/7943877_orig.jpg"
-                   data-caption="Samsung / Mejores Regalos|Concepto, dirección de arte, retoque, diseño y layout.">
-                <img src="./assets/images/7943877.jpg" alt="Samsung Mejores Regalos" />
-              </div>
-              <div class="gitem" data-full="./assets/images/9253084_orig.jpg"
-                   data-caption="Samsung / Note 10.1|Concepto, dirección de arte y layout.">
-                <img src="./assets/images/9253084.jpg" alt="Samsung Note 10.1" />
-              </div>
-            </div>
-
+        <div class="bento-item bento-wide" data-full="./assets/images/8570504_1_orig.jpg" data-caption-key="cap.alpen" data-category="advertising">
+          <div class="bento-media">
+            <img src="./assets/images/8570504_1.jpg" alt="Alpen" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Alpen</span></div>
+            <h3 class="bento-title">Alpen / Lo mejor de lo mejor</h3>
+            <p class="bento-description" data-i18n="cap.alpen">Dirección de arte, diseño y layout.</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <hr class="styled-hr" />
+    <!-- ── EVENTOS & DECORACIÓN ── -->
+    <section id="decoracion" class="work-section">
+      <h2 class="work-section-title" data-i18n="work.filter.decor">Eventos &amp; Decoración</h2>
+      <div class="bento-grid">
+        <div class="bento-item" data-full="./assets/images/6351522_1_orig.jpg" data-caption-key="cap.docker.spring1" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/6351522_1.jpg" alt="Dockers Spring" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Dockers</span></div>
+            <h3 class="bento-title">Dockers / Spring 2010</h3>
+            <p class="bento-description" data-i18n="cap.docker.spring1">Conceptualización y diseño.</p>
+          </div>
+        </div>
 
-      <!-- ═══════ UNDER ARMOUR ═══════ -->
-      <div class="wsite-section wsite-body-section">
-        <div class="wsite-section-content compact">
-          <div class="container">
-            <h2 class="wsite-content-title">Under Armour</h2>
-            <div class="gallery-grid" id="under-gallery">
-              <div class="gitem" data-full="./assets/images/under-g-h_1_orig.jpg"
-                   data-caption="Under Armour / Buen Fin|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/under-g-h_1.jpg" alt="Under Armour Buen Fin" />
-              </div>
-              <div class="gitem" data-full="./assets/images/under-g-h-xmas-2_1_orig.jpg"
-                   data-caption="Under Armour / Buen Fin Xmas 2|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/under-g-h-xmas-2_1.jpg" alt="Under Armour Xmas 2" />
-              </div>
-              <div class="gitem" data-full="./assets/images/under-g-h-xmas_1_orig.jpg"
-                   data-caption="Under Armour / Buen Fin Xmas|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/under-g-h-xmas_1.jpg" alt="Under Armour Xmas" />
-              </div>
-              <div class="gitem" data-full="./assets/images/under-g-m_2_orig.jpg"
-                   data-caption="Under Armour|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/under-g-m_2.jpg" alt="Under Armour" />
-              </div>
-              <div class="gitem" data-full="./assets/images/under-oferta-box_1_orig.jpg"
-                   data-caption="Under Armour / Oferta|Concepto, dirección de Arte, diseño y layout.">
-                <img src="./assets/images/under-oferta-box_1.jpg" alt="Under Armour Oferta" />
-              </div>
-            </div>
+        <div class="bento-item" data-full="./assets/images/6071361_1_orig.jpg" data-caption-key="cap.docker.spring2" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/6071361_1.jpg" alt="Dockers Spring B" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Dockers</span></div>
+            <h3 class="bento-title">Dockers / Spring 2010</h3>
+            <p class="bento-description" data-i18n="cap.docker.spring2">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/6781935_1_orig.jpg" data-caption-key="cap.docker.spring3" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/6781935_1.jpg" alt="Dockers Spring C" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Dockers</span></div>
+            <h3 class="bento-title">Dockers / Spring 2010</h3>
+            <p class="bento-description" data-i18n="cap.docker.spring3">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/8263536_1_orig.jpg" data-caption-key="cap.levis.free1" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/8263536_1.jpg" alt="Levi's Free to Move" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Levi's</span></div>
+            <h3 class="bento-title">Levi's / Free to Move</h3>
+            <p class="bento-description" data-i18n="cap.levis.free1">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/6069378_1_orig.jpg" data-caption-key="cap.levis.free2" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/6069378_1.jpg" alt="Levi's Free to Move B" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Levi's</span></div>
+            <h3 class="bento-title">Levi's / Free to Move 2</h3>
+            <p class="bento-description" data-i18n="cap.levis.free2">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/8034092_1_orig.jpg" data-caption-key="cap.levis.free3" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/8034092_1.jpg" alt="Levi's Free to Move C" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Levi's</span></div>
+            <h3 class="bento-title">Levi's / Free to Move 3</h3>
+            <p class="bento-description" data-i18n="cap.levis.free3">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/166907_1_orig.jpg" data-caption-key="cap.levis.free4" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/166907_1.jpg" alt="Levi's Free to Move D" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Levi's</span></div>
+            <h3 class="bento-title">Levi's / Free to Move 4</h3>
+            <p class="bento-description" data-i18n="cap.levis.free4">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/1263541_1_orig.jpg" data-caption-key="cap.docker.pants1" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/1263541_1.jpg" alt="Dockers Pants" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Dockers</span></div>
+            <h3 class="bento-title">Dockers / Wear the Pants</h3>
+            <p class="bento-description" data-i18n="cap.docker.pants1">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/1372944_1_orig.jpg" data-caption-key="cap.docker.pants2" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/1372944_1.jpg" alt="Dockers Pants B" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Dockers</span></div>
+            <h3 class="bento-title">Dockers / Wear the Pants 2</h3>
+            <p class="bento-description" data-i18n="cap.docker.pants2">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/7451964_1_orig.jpg" data-caption-key="cap.docker.pants3" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/7451964_1.jpg" alt="Dockers Pants C" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Dockers</span></div>
+            <h3 class="bento-title">Dockers / Wear the Pants 3</h3>
+            <p class="bento-description" data-i18n="cap.docker.pants3">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/7469044_orig.jpg" data-caption-key="cap.coca.vuelo1" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/7469044.jpg" alt="Coca-Cola Vuelo Zero" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Coca-Cola Zero</span></div>
+            <h3 class="bento-title">Coca-Cola Zero / Vuelo Zero</h3>
+            <p class="bento-description" data-i18n="cap.coca.vuelo1">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/9053312_orig.jpg" data-caption-key="cap.coca.vuelo2" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/9053312.jpg" alt="Coca-Cola Vuelo Zero B" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Coca-Cola Zero</span></div>
+            <h3 class="bento-title">Coca-Cola Zero / Vuelo Zero 2</h3>
+            <p class="bento-description" data-i18n="cap.coca.vuelo2">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/5770810_orig.jpg" data-caption-key="cap.coca.vuelo3" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/5770810.jpg" alt="Coca-Cola Vuelo Zero C" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Coca-Cola Zero</span></div>
+            <h3 class="bento-title">Coca-Cola Zero / Vuelo Zero 3</h3>
+            <p class="bento-description" data-i18n="cap.coca.vuelo3">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/113314_orig.jpg" data-caption-key="cap.jockey.evolucion1" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/113314.jpg" alt="Jockey Evolución" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Jockey</span></div>
+            <h3 class="bento-title">Jockey / Evolución de la ropa</h3>
+            <p class="bento-description" data-i18n="cap.jockey.evolucion1">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/5620865_orig.jpg" data-caption-key="cap.jockey.evolucion2" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/5620865.jpg" alt="Jockey Evolución B" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Jockey</span></div>
+            <h3 class="bento-title">Jockey / Evolución de la ropa 2</h3>
+            <p class="bento-description" data-i18n="cap.jockey.evolucion2">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/1542622_orig.jpg" data-caption-key="cap.jockey.evolucion3" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/1542622.jpg" alt="Jockey Evolución C" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Jockey</span></div>
+            <h3 class="bento-title">Jockey / Evolución de la ropa 3</h3>
+            <p class="bento-description" data-i18n="cap.jockey.evolucion3">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/2294637_orig.jpg" data-caption-key="cap.jockey.evolucion4" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/2294637.jpg" alt="Jockey Evolución D" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Jockey</span></div>
+            <h3 class="bento-title">Jockey / Evolución de la ropa 4</h3>
+            <p class="bento-description" data-i18n="cap.jockey.evolucion4">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/8746658_orig.jpg" data-caption-key="cap.decor.navidad1" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/8746658.jpg" alt="Incosmetika Navidad" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Incosmetika</span><span class="bento-tag">Display</span></div>
+            <h3 class="bento-title">Incosmetika / Navidad</h3>
+            <p class="bento-description" data-i18n="cap.decor.navidad1">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item bento-wide" data-full="./assets/images/1473900_orig.jpg" data-caption-key="cap.decor.navidad2" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/1473900.jpg" alt="Incosmetika Navidad B" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Incosmetika</span><span class="bento-tag">Display</span></div>
+            <h3 class="bento-title">Incosmetika / Navidad 2</h3>
+            <p class="bento-description" data-i18n="cap.decor.navidad2">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/5036225_orig.jpg" data-caption-key="cap.decor.lacoste1" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/5036225.jpg" alt="Lacoste Sienne" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Lacoste</span><span class="bento-tag">Display</span></div>
+            <h3 class="bento-title">Lacoste / Sienne</h3>
+            <p class="bento-description" data-i18n="cap.decor.lacoste1">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/6681235_orig.jpg" data-caption-key="cap.decor.lacoste2" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/6681235.jpg" alt="Lacoste Sienne B" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Lacoste</span><span class="bento-tag">Display</span></div>
+            <h3 class="bento-title">Lacoste / Sienne 2</h3>
+            <p class="bento-description" data-i18n="cap.decor.lacoste2">Conceptualización y diseño.</p>
+          </div>
+        </div>
+
+        <div class="bento-item" data-full="./assets/images/7693697_orig.jpg" data-caption-key="cap.decor.lacoste3" data-category="event-decor">
+          <div class="bento-media">
+            <img src="./assets/images/7693697.jpg" alt="Lacoste Annual Sale" />
+            <div class="bento-overlay"></div>
+          </div>
+          <div class="bento-content">
+            <div class="bento-tags"><span class="bento-tag">Lacoste</span><span class="bento-tag">Display</span></div>
+            <h3 class="bento-title">Lacoste / Annual Sale</h3>
+            <p class="bento-description" data-i18n="cap.decor.lacoste3">Conceptualización y diseño.</p>
           </div>
         </div>
       </div>
-
-      <hr class="styled-hr" />
-
-      <!-- ═══════ GREENPEACE ═══════ -->
-      <div class="wsite-section wsite-body-section">
-        <div class="wsite-section-content compact">
-          <div class="container">
-            <h2 class="wsite-content-title" style="text-align:left;">Greenpeace</h2>
-            <div class="gallery-grid" id="greenpeace-gallery">
-              <div class="gitem" data-full="./assets/images/5886739_1_orig.jpg"
-                   data-caption="Greenpeace / Árbol de la vida / Eagle Award (Plata)|Dirección de arte, dirección de fotografía.">
-                <img src="./assets/images/5886739_1.jpg" alt="Greenpeace Árbol de la vida" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr class="styled-hr" />
-
-      <!-- ═══════ GARRA NEGRA ═══════ -->
-      <div class="wsite-section wsite-body-section">
-        <div class="wsite-section-content compact">
-          <div class="container">
-            <h2 class="wsite-content-title">Garra Negra</h2>
-            <div class="gallery-grid" id="garra-gallery">
-              <div class="gitem" data-full="./assets/images/garra-negra-final-003_1_orig.jpeg"
-                   data-caption="Garra Negra|Dirección de arte, diseño y layout.">
-                <img src="./assets/images/garra-negra-final-003_1.jpeg" alt="Garra Negra 003" />
-              </div>
-              <div class="gitem" data-full="./assets/images/garra-negra-final-006_1_orig.jpeg"
-                   data-caption="Garra Negra|Dirección de arte, diseño y layout.">
-                <img src="./assets/images/garra-negra-final-006_1.jpeg" alt="Garra Negra 006" />
-              </div>
-              <div class="gitem" data-full="./assets/images/garra-negra-final-007_1_orig.jpeg"
-                   data-caption="Garra Negra|Dirección de arte, diseño y layout.">
-                <img src="./assets/images/garra-negra-final-007_1.jpeg" alt="Garra Negra 007" />
-              </div>
-              <div class="gitem" data-full="./assets/images/garra-negra-final-botella_1_orig.jpg"
-                   data-caption="Garra Negra / Botella|Dirección de arte, diseño y layout.">
-                <img src="./assets/images/garra-negra-final-botella_1.jpg" alt="Garra Negra Botella" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr class="styled-hr" />
-
-      <!-- ═══════ ALPEN ═══════ -->
-      <div class="wsite-section wsite-body-section">
-        <div class="wsite-section-content compact">
-          <div class="container">
-            <h2 class="wsite-content-title" style="text-align:left;">Alpen</h2>
-            <div class="gallery-grid" id="alpen-gallery">
-              <div class="gitem" data-full="./assets/images/8570504_1_orig.jpg"
-                   data-caption="Alpen / Lo mejor de lo mejor|Dirección de arte, diseño y layout.">
-                <img src="./assets/images/8570504_1.jpg" alt="Alpen Lo mejor de lo mejor" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr class="styled-hr" />
-
-      <!-- ═══════ EVENTOS (Dockers / Levi's) ═══════ -->
-      <div class="wsite-section wsite-body-section">
-        <div class="wsite-section-content compact">
-          <div class="container">
-            <h2 class="wsite-content-title" style="text-align:left;">Eventos</h2>
-            <div class="gallery-grid" id="eventos-gallery" style="grid-template-columns: repeat(5, 1fr);">
-              <div class="gitem" data-full="./assets/images/6351522_1_orig.jpg"
-                   data-caption="Dockers / Spring 2010|Conceptualización y diseño.">
-                <img src="./assets/images/6351522_1.jpg" alt="Dockers Spring 2010" />
-              </div>
-              <div class="gitem" data-full="./assets/images/6071361_1_orig.jpg"
-                   data-caption="Dockers / Spring 2010|Conceptualización y diseño.">
-                <img src="./assets/images/6071361_1.jpg" alt="Dockers Spring 2010 b" />
-              </div>
-              <div class="gitem" data-full="./assets/images/6781935_1_orig.jpg"
-                   data-caption="Dockers / Spring 2010|Conceptualización y diseño.">
-                <img src="./assets/images/6781935_1.jpg" alt="Dockers Spring 2010 c" />
-              </div>
-              <div class="gitem" data-full="./assets/images/8263536_1_orig.jpg"
-                   data-caption="Levi's / Free to Move|Conceptualización y diseño.">
-                <img src="./assets/images/8263536_1.jpg" alt="Levis Free to Move" />
-              </div>
-              <div class="gitem" data-full="./assets/images/6069378_1_orig.jpg"
-                   data-caption="Levi's / Free to Move|Conceptualización y diseño.">
-                <img src="./assets/images/6069378_1.jpg" alt="Levis Free to Move b" />
-              </div>
-              <div class="gitem" data-full="./assets/images/8034092_1_orig.jpg"
-                   data-caption="Levi's / Free to Move|Conceptualización y diseño.">
-                <img src="./assets/images/8034092_1.jpg" alt="Levis Free to Move c" />
-              </div>
-              <div class="gitem" data-full="./assets/images/166907_1_orig.jpg"
-                   data-caption="Levi's / Free to Move|Conceptualización y diseño.">
-                <img src="./assets/images/166907_1.jpg" alt="Levis Free to Move d" />
-              </div>
-              <div class="gitem" data-full="./assets/images/1263541_1_orig.jpg"
-                   data-caption="Dockers / Wear the Pants|Conceptualización y diseño.">
-                <img src="./assets/images/1263541_1.jpg" alt="Dockers Wear the Pants" />
-              </div>
-              <div class="gitem" data-full="./assets/images/1372944_1_orig.jpg"
-                   data-caption="Dockers / Wear the Pants|Conceptualización y diseño.">
-                <img src="./assets/images/1372944_1.jpg" alt="Dockers Wear the Pants b" />
-              </div>
-              <div class="gitem" data-full="./assets/images/7451964_1_orig.jpg"
-                   data-caption="Dockers / Wear the Pants|Conceptualización y diseño.">
-                <img src="./assets/images/7451964_1.jpg" alt="Dockers Wear the Pants c" />
-              </div>
-              <div class="gitem" data-full="./assets/images/7469044_orig.jpg"
-                   data-caption="Coca-Cola Zero / Vuelo Zero|Conceptualización y diseño.">
-                <img src="./assets/images/7469044.jpg" alt="Coca-Cola Zero Vuelo Zero" />
-              </div>
-              <div class="gitem" data-full="./assets/images/9053312_orig.jpg"
-                   data-caption="Coca-Cola Zero / Vuelo Zero|Conceptualización y diseño.">
-                <img src="./assets/images/9053312.jpg" alt="Coca-Cola Zero Vuelo Zero b" />
-              </div>
-              <div class="gitem" data-full="./assets/images/5770810_orig.jpg"
-                   data-caption="Coca-Cola Zero / Vuelo Zero|Conceptualización y diseño.">
-                <img src="./assets/images/5770810.jpg" alt="Coca-Cola Zero Vuelo Zero c" />
-              </div>
-              <div class="gitem" data-full="./assets/images/113314_orig.jpg"
-                   data-caption="Jockey / Evolución de la ropa|Conceptualización y diseño.">
-                <img src="./assets/images/113314.jpg" alt="Jockey Evolución de la ropa" />
-              </div>
-              <div class="gitem" data-full="./assets/images/5620865_orig.jpg"
-                   data-caption="Jockey / Evolución de la ropa|Conceptualización y diseño.">
-                <img src="./assets/images/5620865.jpg" alt="Jockey Evolución de la ropa b" />
-              </div>
-              <div class="gitem" data-full="./assets/images/1542622_orig.jpg"
-                   data-caption="Jockey / Evolución de la ropa|Conceptualización y diseño.">
-                <img src="./assets/images/1542622.jpg" alt="Jockey Evolución de la ropa c" />
-              </div>
-              <div class="gitem" data-full="./assets/images/2294637_orig.jpg"
-                   data-caption="Jockey / Evolución de la ropa|Conceptualización y diseño.">
-                <img src="./assets/images/2294637.jpg" alt="Jockey Evolución de la ropa d" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr class="styled-hr" />
-
-      <!-- ═══════ DECORACIÓN Y DISPLAY ═══════ -->
-      <div class="wsite-section wsite-body-section">
-        <div class="wsite-section-content compact">
-          <div class="container">
-            <h2 class="wsite-content-title" style="text-align:left;" data-i18n="work.decor">Decoración y Display</h2>
-            <div class="gallery-grid" id="decoracion-gallery" style="grid-template-columns: repeat(5, 1fr);">
-              <div class="gitem" data-full="./assets/images/8746658_orig.jpg"
-                   data-caption="Incosmetika / Navidad|Conceptualización y diseño.">
-                <img src="./assets/images/8746658.jpg" alt="Incosmetika Navidad" />
-              </div>
-              <div class="gitem" data-full="./assets/images/1473900_orig.jpg"
-                   data-caption="Incosmetika / Navidad|Conceptualización y diseño.">
-                <img src="./assets/images/1473900.jpg" alt="Incosmetika Navidad b" />
-              </div>
-              <div class="gitem" data-full="./assets/images/5036225_orig.jpg"
-                   data-caption="Lacoste / Sienne|Conceptualización y diseño.">
-                <img src="./assets/images/5036225.jpg" alt="Lacoste Sienne" />
-              </div>
-              <div class="gitem" data-full="./assets/images/6681235_orig.jpg"
-                   data-caption="Lacoste / Sienne|Conceptualización y diseño.">
-                <img src="./assets/images/6681235.jpg" alt="Lacoste Sienne b" />
-              </div>
-              <div class="gitem" data-full="./assets/images/7693697_orig.jpg"
-                   data-caption="Lacoste / Annual Sale|Conceptualización y diseño.">
-                <img src="./assets/images/7693697.jpg" alt="Lacoste Annual Sale" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    </section>
   </div>
+</main>
 
+  <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <p data-i18n="footer">&copy; 2025 Bernardo Flores &mdash; Head of Art &amp; UX/UI Designer</p>
   </footer>
 
-  <script>
-    // Map caption keys dynamically before i18n loads
-    const captionKeys = [
-      'cap.fullcarga', 'cap.fullcarga.case', 'cap.ya.spots', 'cap.ya.case', 'cap.pagatodo.case',
-      'cap.iconx.mercury', 'cap.iconx.kimister', 'cap.iconx.bowie',
-      'cap.switch.a', 'cap.switch.b', 'cap.focus',
-      'cap.galaxy', 'cap.glamrebel', 'cap.strongsweet',
-      'cap.vr.alpinista', 'cap.vr.ciclista', 'cap.vr.gamer',
-      'cap.galaxy.a8.tia', 'cap.galaxy.a8.rockero',
-      'cap.qled.5', 'cap.qled.1', 'cap.qled.6',
-      'cap.s8pink.taxco', 'cap.s8pink.cabos',
-      'cap.sos.city', 'cap.sos.forest',
-      'cap.colibri', 'cap.lagartija', 'cap.vuelve',
-      'cap.buds', 'cap.kids',
-      'cap.cancer.poster', 'cap.cancer.fb5', 'cap.cancer.fb1', 'cap.cancer.fb3', 'cap.interaccion',
-      'cap.svoice.1', 'cap.svoice.2',
-      'cap.comparte.1', 'cap.comparte.2',
-      'cap.gmusic.1', 'cap.gmusic.2',
-      'cap.corbatas', 'cap.regalos', 'cap.note10',
-      'cap.under.buen1', 'cap.under.buen2', 'cap.under.buen3', 'cap.under.g', 'cap.under.oferta',
-      'cap.greenpeace',
-      'cap.garra.003', 'cap.garra.006', 'cap.garra.007', 'cap.garra.botella',
-      'cap.alpen',
-      'cap.docker.spring1', 'cap.docker.spring2', 'cap.docker.spring3',
-      'cap.levis.free1', 'cap.levis.free2', 'cap.levis.free3', 'cap.levis.free4',
-      'cap.docker.pants1', 'cap.docker.pants2', 'cap.docker.pants3',
-      'cap.coca.vuelo1', 'cap.coca.vuelo2', 'cap.coca.vuelo3',
-      'cap.jockey.evolucion1', 'cap.jockey.evolucion2', 'cap.jockey.evolucion3', 'cap.jockey.evolucion4',
-      'cap.decor.navidad1', 'cap.decor.navidad2', 'cap.decor.lacoste1', 'cap.decor.lacoste2', 'cap.decor.lacoste3'
-    ];
-    let keyIdx = 0;
-    document.querySelectorAll('[data-caption]').forEach(item => {
-      if (keyIdx < captionKeys.length) {
-        item.dataset.captionKey = captionKeys[keyIdx++];
-      }
-    });
-  </script>
   <script src="./assets/js/i18n.js"></script>
-
-  <script>
-    /* ── Sticky Header Padding ── */
-    const header = document.getElementById('site-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        header.style.padding = '10px 40px';
-      } else {
-        header.style.padding = '20px 40px';
-      }
-    });
-
-    /* ── Mobile nav ── */
-    const mobileNav = document.getElementById('mobile-nav');
-    document.querySelectorAll('.hamburger').forEach(h => {
-      h.addEventListener('click', () => {
-        mobileNav.classList.toggle('open');
-        document.body.classList.toggle('nav-open');
-      });
-    });
-
-    /* ── Lightbox ── */
-    const lightbox  = document.getElementById('lightbox');
-    const lbImg     = document.getElementById('lightbox-img');
-    const lbCaption = document.getElementById('lightbox-caption');
-    const lbClose   = document.getElementById('lightbox-close');
-    const lbPrev    = document.getElementById('lightbox-prev');
-    const lbNext    = document.getElementById('lightbox-next');
-
-    const items = Array.from(document.querySelectorAll('.gitem'));
-    let current = 0;
-
-    function updateCaption(item) {
-      const raw = item.dataset.caption || '';
-      const link = item.dataset.link || '';
-      const lang = localStorage.getItem('bf_lang') || 'es';
-      const isEn = lang === 'en';
-
-      let linkText = item.dataset.linkText || 'Ver proyecto';
-      if (linkText.toLowerCase().includes('behance')) {
-        linkText = isEn ? 'View on Behance' : 'Ver en Behance';
-      } else if (linkText.toLowerCase().includes('case study')) {
-        linkText = isEn ? 'View Case Study' : 'Ver Case Study';
-      } else {
-        linkText = isEn ? 'View project' : 'Ver proyecto';
-      }
-
-      if (!raw && !link) { lbCaption.innerHTML = ''; return; }
-
-      const parts = raw.split('|');
-      const textHTML = raw
-        ? (parts.length > 1 ? `<strong>${parts[0]}</strong>${parts[1]}` : raw)
-        : '';
-
-      const linkHTML = link
-        ? `<br><a href="${link}" target="_blank" rel="noopener" class="lb-link-btn">
-             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-             ${linkText}
-           </a>`
-        : '';
-
-      lbCaption.innerHTML = textHTML + linkHTML;
-    }
-
-    function openLightbox(index) {
-      current = index;
-      const item = items[current];
-      lbImg.src  = item.dataset.full || item.querySelector('img').src;
-      lbImg.alt  = item.querySelector('img').alt;
-      updateCaption(item);
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      lbImg.src = '';
-      lbCaption.innerHTML = '';
-      document.body.style.overflow = '';
-    }
-
-    function showPrev() {
-      current = (current - 1 + items.length) % items.length;
-      lbImg.src = items[current].dataset.full || items[current].querySelector('img').src;
-      lbImg.alt = items[current].querySelector('img').alt;
-      updateCaption(items[current]);
-    }
-
-    function showNext() {
-      current = (current + 1) % items.length;
-      lbImg.src = items[current].dataset.full || items[current].querySelector('img').src;
-      lbImg.alt = items[current].querySelector('img').alt;
-      updateCaption(items[current]);
-    }
-
-    // Asignar eventos a cada item
-    items.forEach((item, idx) => {
-      // Si el item tiene un <a> externo, solo abrimos lightbox para items de galería Samsung
-      // Para YA Payments con links externos, click abre el link externo tal cual
-      const hasExternalLink = item.querySelector('a[target="_blank"][href^="http"]');
-      if (hasExternalLink && !item.closest('#samsung-gallery')) {
-        // No sobrescribir el link externo de Fullcarga/YA Payments
-        return;
-      }
-      item.addEventListener('click', (e) => {
-        e.preventDefault();
-        openLightbox(idx);
-      });
-    });
-
-    lbClose.addEventListener('click', closeLightbox);
-    lbPrev.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
-    lbNext.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
-
-    // Click fuera de la imagen = cerrar
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-
-    // Teclado
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape')      closeLightbox();
-      if (e.key === 'ArrowLeft')   showPrev();
-      if (e.key === 'ArrowRight')  showNext();
-    });
-  </script>
+  <script src="./assets/js/main.js"></script>
 
 </body>
 </html>

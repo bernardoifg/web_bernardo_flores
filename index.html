@@ -6,17 +6,24 @@
   <title>Bernardo Flores – SOBRE MÍ</title>
   <meta name="description" content="Book Bernardo Flores – Creative Lead y Senior Product Designer con más de 12 años de experiencia." />
   <meta name="keywords" content="Book, Bernardo, Flores, Portafolio, Curriculum" />
+  
+  <!-- Open Graph -->
   <meta property="og:site_name" content="Bernardo Flores" />
   <meta property="og:title" content="Bernardo Flores" />
   <meta property="og:description" content="Book Bernardo Flores" />
   <meta property="og:image" content="./assets/images/bf-fondo.png" />
   <meta property="og:url" content="https://bernardoflores.vercel.app/" />
+  
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-<body class="header-page wsite-theme-light" data-page="about">
+<body data-page="about">
+
+  <!-- ===================== CUSTOM CURSOR ===================== -->
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-ring" id="cursor-ring"></div>
 
   <!-- ===================== HEADER ===================== -->
-  <div class="birdseye-header" id="site-header">
+  <header class="birdseye-header scrolled" id="site-header">
     <div class="container nav-inner">
       <div class="logo">
         <a href="index.html">
@@ -24,35 +31,40 @@
         </a>
       </div>
 
-      <!-- Desktop nav -->
-      <div class="nav desktop-nav">
+      <!-- Desktop Navigation -->
+      <nav class="nav desktop-nav">
         <ul class="wsite-menu-default">
-          <li id="active"><a href="index.html"    class="wsite-menu-item" data-i18n="nav.about">SOBRE MÍ</a></li>
-          <li><a href="trabajo.html"    class="wsite-menu-item" data-i18n="nav.work">TRABAJO</a></li>
+          <li id="active"><a href="index.html" class="wsite-menu-item" data-i18n="nav.about">SOBRE MÍ</a></li>
+          <li><a href="trabajo.html" class="wsite-menu-item" data-i18n="nav.work">TRABAJO</a></li>
           <li><a href="experiencia.html" class="wsite-menu-item" data-i18n="nav.experience">EXPERIENCIA</a></li>
-          <li><a href="estudios.html"   class="wsite-menu-item" data-i18n="nav.studies">ESTUDIOS</a></li>
-          <li><a href="contacto.html"   class="wsite-menu-item" data-i18n="nav.contact">CONTACTO</a></li>
+          <li><a href="estudios.html" class="wsite-menu-item" data-i18n="nav.studies">ESTUDIOS</a></li>
+          <li><a href="contacto.html" class="wsite-menu-item" data-i18n="nav.contact">CONTACTO</a></li>
           <li class="lang-toggle">
             <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
             <span class="lang-sep">/</span>
             <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
           </li>
         </ul>
-      </div>
+      </nav>
 
-      <label class="hamburger" for="nav-toggle" aria-label="Menu"><span></span></label>
+      <!-- Hamburger mobile button -->
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-  </div>
+  </header>
 
-  <!-- Mobile nav -->
+  <!-- Mobile Backdrop & Navigation Drawer -->
+  <div class="nav-backdrop" id="nav-backdrop"></div>
   <div class="mobile-nav" id="mobile-nav">
-    <label class="hamburger" for="nav-toggle" aria-label="Cerrar menu"><span></span></label>
     <ul class="wsite-menu-default">
-      <li id="m-active"><a href="index.html"    class="wsite-menu-item" data-i18n="nav.about">SOBRE MÍ</a></li>
-      <li><a href="trabajo.html"    class="wsite-menu-item" data-i18n="nav.work">TRABAJO</a></li>
+      <li id="m-active"><a href="index.html" class="wsite-menu-item" data-i18n="nav.about">SOBRE MÍ</a></li>
+      <li><a href="trabajo.html" class="wsite-menu-item" data-i18n="nav.work">TRABAJO</a></li>
       <li><a href="experiencia.html" class="wsite-menu-item" data-i18n="nav.experience">EXPERIENCIA</a></li>
-      <li><a href="estudios.html"   class="wsite-menu-item" data-i18n="nav.studies">ESTUDIOS</a></li>
-      <li><a href="contacto.html"   class="wsite-menu-item" data-i18n="nav.contact">CONTACTO</a></li>
+      <li><a href="estudios.html" class="wsite-menu-item" data-i18n="nav.studies">ESTUDIOS</a></li>
+      <li><a href="contacto.html" class="wsite-menu-item" data-i18n="nav.contact">CONTACTO</a></li>
       <li class="lang-toggle">
         <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
         <span class="lang-sep">/</span>
@@ -61,87 +73,56 @@
     </ul>
   </div>
 
-  <!-- ===================== HERO / BANNER ===================== -->
-  <div class="banner-wrap">
-    <div class="wsite-header-section header-overlay-on">
-      <div class="wsite-section-content">
-        <div class="container">
-          <h2 class="wsite-content-title hero-title">Bernardo Flores</h2>
-          <div class="paragraph hero-subtitle">Head of Art &amp; UX/UI Designer</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================== MAIN ===================== -->
-  <div class="main-wrap">
-    <div id="wsite-content" class="wsite-elements wsite-not-footer">
-      <div class="wsite-section wsite-body-section wsite-background-2">
-        <div class="wsite-section-content">
-          <div class="container">
-            <div class="wsite-section-elements">
-
-              <h2 class="wsite-content-title" style="text-align:left;" data-i18n="about.heading">Sobre Mí</h2>
-
-              <div class="paragraph" style="text-align:left; display:block;" data-i18n="about.bio">
-                Creative Lead y Senior Product Designer con más de 12 años de experiencia
-                impulsando la estrategia visual para marcas globales. Actualmente me especializo
-                en el diseño de ecosistemas digitales complejos dentro del espacio Fintech, con
-                enfoque en Banca Web, aplicaciones móviles y soluciones POS. Con una sólida
-                trayectoria en Dirección de Arte y Branding, aprovecho la IA Generativa para
-                optimizar flujos de trabajo creativos y producir contenido visual de alto impacto.
-                Mi enfoque fusiona la creatividad orientada a la publicidad con el rigor técnico
-                para entregar productos digitales que sean tan funcionales como memorables.
-              </div>
-
-              <!-- Social icons -->
-              <div style="text-align:center;">
-                <div style="height:10px; overflow:hidden;"></div>
-                <span class="wsite-social wsite-social-default">
-                  <a class="first-child wsite-social-item wsite-social-facebook"
-                     href="https://www.facebook.com/bherflow" target="_blank" aria-label="Facebook"></a>
-                  <a class="wsite-social-item wsite-social-twitter"
-                     href="https://twitter.com/bherflow" target="_blank" aria-label="Twitter"></a>
-                  <a class="wsite-social-item wsite-social-linkedin"
-                     href="https://mx.linkedin.com/pub/bernardo-flores/24/844/4a0" target="_blank" aria-label="LinkedIn"></a>
-                  <a class="last-child wsite-social-item wsite-social-mail"
-                     href="mailto:bernardoifg@gmail.com" target="_blank" aria-label="Mail"></a>
-                </span>
-                <div style="height:10px; overflow:hidden;"></div>
-              </div>
-
-            </div>
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main class="main-wrap">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Text details -->
+        <div class="about-content">
+          <h1 class="hero-title">Bernardo Flores</h1>
+          <div class="hero-subtitle" style="margin-bottom: 24px;">Head of Art &amp; UX/UI Designer</div>
+          
+          <h2 data-i18n="about.heading">Sobre Mí</h2>
+          <div class="paragraph" data-i18n="about.bio">
+            Creative Lead y Senior Product Designer con más de 12 años de experiencia
+            impulsando la estrategia visual para marcas globales. Actualmente me especializo
+            en el diseño de ecosistemas digitales complejos dentro del espacio Fintech, con
+            enfoque en Banca Web, aplicaciones móviles y soluciones POS. Con una sólida
+            trayectoria en Dirección de Arte y Branding, aprovecho la IA Generativa para
+            optimizar flujos de trabajo creativos y producir contenido visual de alto impacto.
+            Mi enfoque fusiona la creatividad orientada a la publicidad con el rigor técnico
+            para entregar productos digitales que sean tan funcionales como memorables.
+          </div>
+          
+          <!-- Social Profiles -->
+          <div class="social-buttons">
+            <a class="social-btn" href="https://www.behance.net/bherflow" target="_blank" aria-label="Behance">
+              <svg viewBox="0 0 24 24"><path d="M22 14.364h-6.816A3.412 3.412 0 0019 16c1.091 0 1.964-.491 2.364-1.327h1.636c-.454 2.11-2.291 3.527-4 3.527a5.163 5.163 0 01-5.182-5.182 5.145 5.145 0 015.182-5.182c3.164 0 5 2.182 5 5.182v1.364zM19 10.636c-1 0-1.818.727-2.182 1.636h4.364A2.083 2.083 0 0019 10.636zM9.455 12c.982 0 1.836-.327 2.291-1.018.527-.673.727-1.782.727-2.618 0-.836-.2-1.927-.727-2.618C11.291 5.091 10.436 4.764 9.455 4.764H2v14.4h7.455a5.533 5.533 0 003.527-.927c1.036-.8 1.473-2.11 1.473-3.6 0-1.49-.436-2.764-1.473-3.564-.472-.673-1.309-1.073-2.291-1.073v-.036zm-4.364-4.8h4.364c1.091 0 1.818.545 1.818 1.455S10.545 10.1 9.455 10.1H5.091V7.2zm4.364 8.727H5.091V12.7H9.455c1.091 0 1.818.545 1.818 1.455s-.727 1.472-1.818 1.472zM15 6h8v1.5h-8V6z"/></svg>
+            </a>
+            <a class="social-btn" href="https://mx.linkedin.com/pub/bernardo-flores/24/844/4a0" target="_blank" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a class="social-btn" href="mailto:bernardoifg@gmail.com" target="_blank" aria-label="Mail">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
           </div>
         </div>
+        
+        <!-- Profile Photo -->
+        <div class="about-photo-wrapper">
+          <img class="about-photo" src="./assets/images/506073534.jpg" alt="Bernardo Flores Profile" />
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 
-  <!-- FOOTER -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <p data-i18n="footer">&copy; 2025 Bernardo Flores &mdash; Head of Art &amp; UX/UI Designer</p>
   </footer>
 
   <script src="./assets/js/i18n.js"></script>
-  <script>
-    const header = document.getElementById('site-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        header.style.background = 'rgba(0,0,0,0.9)';
-        header.style.padding = '10px 40px';
-      } else {
-        header.style.background = 'transparent';
-        header.style.padding = '20px 40px';
-      }
-    });
-    const mobileNav = document.getElementById('mobile-nav');
-    document.querySelectorAll('.hamburger').forEach(h => {
-      h.addEventListener('click', () => {
-        mobileNav.classList.toggle('open');
-        document.body.classList.toggle('nav-open');
-      });
-    });
-  </script>
+  <script src="./assets/js/main.js"></script>
 
 </body>
 </html>
