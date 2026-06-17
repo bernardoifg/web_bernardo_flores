@@ -625,6 +625,10 @@ li.active .wsite-menu-item {
   grid-column: span 12;
 }
 
+.bento-item.bento-align-start {
+  align-self: start;
+}
+
 /* Bento Media */
 .bento-media {
   width: 100%;
